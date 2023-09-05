@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 
 import Image from "next/image";
 import Logo from "../public/image/project.jpg";
-import Work1 from "../public/image/for portfolio3.png";
-import Work2 from "../public/image/portfoliotawaz.png";
-import Work3 from "../public/image/forport6.jpg";
-import Work4 from "../public/image/forport7.jpg";
+import Work1 from "../public/image/for portfolio3.PNG";
+import Work2 from "../public/image/portfoliotawaz.PNG";
+import Work3 from "../public/image/forport6.JPG";
+import Work4 from "../public/image/forport7.JPG";
 import DefaultLayout from "@/layout/DefaultLayout";
 import Aos from "aos";
 import "aos/dist/aos.css";
