@@ -10,10 +10,12 @@ function ContactUs() {
   const [message, setMessage] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
+    setError("");
 
     const data = {
       name,
@@ -39,10 +41,12 @@ function ContactUs() {
         setMessage("");
         setSubmitted(true);
       } else {
-        console.log("Response failed!");
+        const result = await response.json();
+        setError(result.message || "Failed to send message.");
       }
     } catch (error) {
-      console.log("Error occurred:", error);
+      setError("An unexpected error occurred. Please try again.");
+      console.error("Error occurred:", error);
     } finally {
       setSubmitting(false);
     }
@@ -80,9 +84,7 @@ function ContactUs() {
                   placeholder="Your full name"
                   className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-blue-500 mt-2"
                   value={name}
-                  onChange={(e) => {
-                    setName(e.target.value);
-                  }}
+                  onChange={(e) => setName(e.target.value)}
                 />
               </div>
               <div>
@@ -93,9 +95,7 @@ function ContactUs() {
                   placeholder="Enter your email address"
                   className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-blue-500 mt-2"
                   value={email}
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                  }}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div>
@@ -106,9 +106,7 @@ function ContactUs() {
                   placeholder="Enter the subject"
                   className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-blue-500 mt-2"
                   value={subject}
-                  onChange={(e) => {
-                    setSubject(e.target.value);
-                  }}
+                  onChange={(e) => setSubject(e.target.value)}
                 />
               </div>
               <div>
@@ -119,9 +117,7 @@ function ContactUs() {
                   rows="5"
                   className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-blue-500"
                   value={message}
-                  onChange={(e) => {
-                    setMessage(e.target.value);
-                  }}
+                  onChange={(e) => setMessage(e.target.value)}
                 ></textarea>
               </div>
               <button
@@ -136,6 +132,7 @@ function ContactUs() {
                   Message submitted successfully!
                 </div>
               )}
+              {error && <div className="text-red-500 mt-4">{error}</div>}
             </form>
           </div>
         </div>
