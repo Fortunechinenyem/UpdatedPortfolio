@@ -44,8 +44,7 @@ const Blog = () => {
           </h1>
           <p className="text-lg text-gray-600 mb-12">
             Stay updated with the latest industry news, business tips, and
-            success stories. Our blog is designed to provide valuable insights
-            and inspiration to help your business grow and succeed.
+            success stories. It documents my learning journey.
           </p>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
