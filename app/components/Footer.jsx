@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Logo from "../../public/image/logss.svg";
+import Logo from "../../public/image/fortune.svg";
 import {
   BsLinkedin,
   BsInstagram,
@@ -12,90 +12,96 @@ import {
 
 function Footer() {
   return (
-    <div className="bg-gray-900 text-xl text-white p-4 ">
-      <div className="h-1/2 w-full flex md:flex-row flex-col justify-around items-start ">
-        <div className="p-5">
-          <Link href="/" className="flex title-font font-medium items-center">
-            <Image
-              className=" mb-5"
-              src={Logo}
-              alt="logo"
-              width={110}
-              priority
-            />
-          </Link>
-          <p>
-            <p>
+    <footer className="bg-gray-600 text-white py-8">
+      <div className="container mx-auto px-6">
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="mb-8 md:mb-0">
+            <Link href="/" className="flex items-center">
+              <Image src={Logo} alt="logo" width={110} priority />
+            </Link>
+            <p className="mt-4 text-gray-300">
               Got a question or proposal, or just want to say hello? Go ahead.
             </p>
-          </p>
-          <div className="p-5">
-            <p className="text-gray-200 pb-4">
+            <p className="mt-2 text-gray-400">
               fortunechinenyem@gmail.com <br />
-              <span className="ml-7">+2348067585444</span> <br />
-              Lagos, Nigeria. <br />
+              +2348067585444 <br />
+              Lagos, Nigeria.
             </p>
+          </div>
+
+          <div className="mb-8 md:mb-0">
+            <h3 className="text-xl font-semibold text-white mb-4">
+              Quick Links
+            </h3>
+            <ul>
+              <li className="mb-2">
+                <Link href="/" className="text-gray-400 hover:text-white">
+                  Home
+                </Link>
+              </li>
+              <li className="mb-2">
+                <Link href="/about" className="text-gray-400 hover:text-white">
+                  About Me
+                </Link>
+              </li>
+              <li className="mb-2">
+                <Link
+                  href="/projects"
+                  className="text-gray-400 hover:text-white"
+                >
+                  My Work
+                </Link>
+              </li>
+              <li className="mb-2">
+                <Link
+                  href="/services"
+                  className="text-gray-400 hover:text-white"
+                >
+                  Tech Stack
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold text-white mb-4">
+              Connect with Me
+            </h3>
+            <div className="flex space-x-6">
+              <Link
+                href="https://www.linkedin.com/in/yourprofile"
+                target="_blank"
+              >
+                <BsLinkedin className="text-2xl text-gray-400 hover:text-white" />
+              </Link>
+              <Link
+                href="https://www.instagram.com/yourprofile"
+                target="_blank"
+              >
+                <BsInstagram className="text-2xl text-gray-400 hover:text-white" />
+              </Link>
+              <Link href="https://www.twitter.com/yourprofile" target="_blank">
+                <BsTwitter className="text-2xl text-gray-400 hover:text-white" />
+              </Link>
+              <Link href="https://www.facebook.com/yourprofile" target="_blank">
+                <BsFacebook className="text-2xl text-gray-400 hover:text-white" />
+              </Link>
+              <Link href="https://www.github.com/yourprofile" target="_blank">
+                <BsGithub className="text-2xl text-gray-400 hover:text-white" />
+              </Link>
+            </div>
           </div>
         </div>
 
-        <div className="p-5">
-          <ul className="">
-            <p className="text-gray-200 font-bold text-2xl pb-4"></p>
-            <li className="text-gray-200 text-md pb-2  hover:text-gray-400 cursor-pointer ml-1">
-              <Link href="/">Home</Link>
-            </li>
-            <li className="text-gray-200 text-md pb-2  hover:text-gray-400 cursor-pointer ml-1">
-              <Link href="/AboutUs">About Me</Link>
-            </li>
-            <li className="text-gray-200 text-md pb-2  hover:text-gray-400 cursor-pointer ml-1">
-              <Link href="/OurWork">Our Work</Link>
-            </li>
-            <li className="text-gray-200 text-md pb-2  hover:text-gray-400 cursor-pointer ml-1">
-              <Link href="/Services">Tech Stack</Link>
-            </li>
-          </ul>
-        </div>
-        <div className="flex gap-6 p-5">
-          <Link href="/">
-            <button className="cursor-pointer text-2xl hover:text-gray-400">
-              <BsLinkedin />
-            </button>
-          </Link>
-
-          <Link href="/">
-            <button className="cursor-pointer text-2xl hover:text-gray-400">
-              <BsInstagram />
-            </button>
-          </Link>
-
-          <Link href="/">
-            <button className="cursor-pointer text-2xl hover:text-gray-400">
-              <BsTwitter />
-            </button>
-          </Link>
-
-          <Link href="/">
-            <button className="cursor-pointer text-2xl hover:text-gray-400">
-              <BsFacebook />
-            </button>
-          </Link>
-
-          <Link href="/">
-            <button className="cursor-pointer text-2xl hover:text-gray-400">
-              <BsGithub />
-            </button>
-          </Link>
+        {/* Copyright */}
+        <div className="mt-8 border-t border-gray-700 pt-4 text-center">
+          <p className="text-gray-400">
+            &copy; {new Date().getFullYear()} Fortune, IyaInTech. All rights
+            reserved.
+          </p>
         </div>
       </div>
-      <hr />
-
-      <footer className="py-4 bg-gray-900 text-white text-center">
-        <p>
-          &copy; {new Date().getFullYear()} Fortune, IyaInTech. All rights
-          reserved.
-        </p>
-      </footer>
-    </div>
+    </footer>
   );
 }
 

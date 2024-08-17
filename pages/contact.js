@@ -15,7 +15,7 @@ function ContactUs() {
     e.preventDefault();
     setSubmitting(true);
 
-    let data = {
+    const data = {
       name,
       email,
       subject,
@@ -49,38 +49,36 @@ function ContactUs() {
   };
 
   return (
-    <div className=" text-xl">
+    <div className="text-xl">
       <div className="container text-center my-12 mb-7">
         <h3 className="font-bold text-4xl mb-7">Get in Touch</h3>
         <p className="text-xl">Got a Proposal, or just want to say Hello?</p>
       </div>
       <div className="flex w-full min-h-screen justify-center items-center">
-        <div className=" flex flex-col justify-around md:flex-row md:space-x-6 space-y-6 md:space-y-0 bg-[#0B2546] w-full max-w-6xl p-8 rounded-xl shadow-lg text-white">
-          <div className="justify-around">
-            <div className=" space-y-5 mt-5">
-              <div className=" space-x-2">
-                <span className="text-2xl">
-                  <GoLocation />
-                </span>
-                <p className="text-xl"> Lagos, Nigeria</p>
-              </div>
-              <div className="flex items-center space-x-2 ml-0">
-                <span className="text-2xl">
-                  <HiOutlineMailOpen />
-                </span>
-                <p className="text-xl">fortunechinenyem@gmail.com</p>
-              </div>
+        <div className="flex flex-col justify-around md:flex-row md:space-x-6 space-y-6 md:space-y-0 bg-[#0B2546] w-full max-w-6xl p-8 rounded-xl shadow-lg text-white">
+          <div className="space-y-5 mt-5">
+            <div className="flex items-center space-x-2">
+              <span className="text-2xl">
+                <GoLocation />
+              </span>
+              <p className="text-xl">Lagos, Nigeria</p>
+            </div>
+            <div className="flex items-center space-x-2">
+              <span className="text-2xl">
+                <HiOutlineMailOpen />
+              </span>
+              <p className="text-xl">fortunechinenyem@gmail.com</p>
             </div>
           </div>
-          <div className="bg-white rounded-xl shadow-lg p-10 max-w-2xl text-gray-600 md:w-100 mb-7">
-            <form onSubmit={handleSubmit} className=" space-y-4 mb-9">
+          <div className="bg-gray-300 rounded-xl shadow-lg p-10 max-w-2xl text-gray-600 md:w-full">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label>Names</label>
+                <label className="block text-gray-700">Name</label>
                 <input
                   required
                   type="text"
                   placeholder="Your full name"
-                  className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 outline-none focus:none mt-2"
+                  className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-blue-500 mt-2"
                   value={name}
                   onChange={(e) => {
                     setName(e.target.value);
@@ -88,12 +86,12 @@ function ContactUs() {
                 />
               </div>
               <div>
-                <label>Email</label>
+                <label className="block text-gray-700">Email</label>
                 <input
                   required
                   type="email"
                   placeholder="Enter your email address"
-                  className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 outline-none focus:none mt-2"
+                  className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-blue-500 mt-2"
                   value={email}
                   onChange={(e) => {
                     setEmail(e.target.value);
@@ -101,12 +99,12 @@ function ContactUs() {
                 />
               </div>
               <div>
-                <label>Subject</label>
+                <label className="block text-gray-700">Subject</label>
                 <input
                   required
                   type="text"
                   placeholder="Enter the subject"
-                  className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 outline-none focus:none mt-2"
+                  className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-blue-500 mt-2"
                   value={subject}
                   onChange={(e) => {
                     setSubject(e.target.value);
@@ -114,12 +112,12 @@ function ContactUs() {
                 />
               </div>
               <div>
-                <label>Message</label>
+                <label className="block text-gray-700">Message</label>
                 <textarea
                   required
                   placeholder="Message"
                   rows="5"
-                  className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus-none"
+                  className="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-blue-500"
                   value={message}
                   onChange={(e) => {
                     setMessage(e.target.value);
@@ -128,13 +126,13 @@ function ContactUs() {
               </div>
               <button
                 type="submit"
-                className="inline-block self-start bg-[#0B2546] text-white font-bold rounded-md px-6 py-2 text-lg px-6 py-3 rounded-md text-sm font-medium"
+                className="mt-8 px-6 py-3 bg-blue-600 text-white rounded-lg text-lg hover:bg-blue-700 transition duration-300"
                 disabled={submitting}
               >
                 {submitting ? "Submitting..." : "Send Message"}
               </button>
               {submitted && (
-                <div className="text-green-500">
+                <div className="text-green-500 mt-4">
                   Message submitted successfully!
                 </div>
               )}
@@ -142,9 +140,10 @@ function ContactUs() {
           </div>
         </div>
       </div>
-
-      <div>
-        <Link href="/">Go back to website</Link>
+      <div className="text-center mt-10">
+        <Link href="/" className="text-blue-600 hover:underline">
+          Go back to website
+        </Link>
       </div>
     </div>
   );
