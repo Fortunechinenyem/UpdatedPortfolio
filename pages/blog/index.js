@@ -1,7 +1,8 @@
 import React from "react";
-import Layout from "@/app/Components/Layout";
+
 import Link from "next/link";
 import Image from "next/image";
+import DefaultLayout from "@/layout/DefaultLayout";
 
 const blogPosts = [
   {
@@ -35,7 +36,7 @@ const blogPosts = [
 
 const Blog = () => {
   return (
-    <Layout>
+    <DefaultLayout>
       <div className="bg-gray-50 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl text-center font-bold text-gray-800 mb-8">
@@ -80,7 +81,7 @@ const Blog = () => {
           </div>
         </div>
       </div>
-    </Layout>
+    </DefaultLayout>
   );
 };
 

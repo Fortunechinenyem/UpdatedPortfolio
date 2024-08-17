@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Logo from "../../public/image/fortune.svg";
+import Logo from "../../public/image/Fortune.svg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
