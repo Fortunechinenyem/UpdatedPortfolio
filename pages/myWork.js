@@ -102,7 +102,7 @@ export default function MyWork() {
                   {project.title}
                 </h3>
                 <p className="mt-4 text-lg md:text-xl">{project.description}</p>
-                <button className="mt-8 px-6 py-3 bg-blue-600 text-white rounded-lg text-lg hover:bg-blue-700 transition duration-300">
+                <button className="mt-8 px-6 py-3 bg-gray-300 text-white rounded-lg text-lg hover:bg-blue-700 transition duration-300">
                   <a
                     href={project.link}
                     target="_blank"

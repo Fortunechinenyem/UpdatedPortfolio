@@ -8,31 +8,34 @@ export default function Home() {
     <DefaultLayout>
       <div className="px-4 text-lg">
         <main>
-          <section className="flex flex-col md:flex-row items-center mt-16 mb-16">
-            <div className="md:w-1/2">
-              <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
+          <section className="flex flex-col md:flex-row items-center mt-16 mb-16 px-4">
+            <div className="md:w-1/2 text-center md:text-left">
+              <h1 className="text-4xl lg:text-6xl font-bold leading-tight text-gray-800 dark:text-gray-100">
                 Hello, I'm Fortune
               </h1>
-              <p className="text-2xl lg:text-3xl mt-6">
-                A Passionate Software Developer
+              <p className="text-2xl lg:text-3xl mt-4 text-gray-600 dark:text-gray-400">
+                A Passionate Software Developer <br /> Technical Support
+                Specialist
               </p>
-              <Link href="/about">
-                <button className="mt-8 px-6 py-3 bg-blue-600 text-white rounded-lg text-lg hover:bg-blue-700 transition duration-300">
-                  Learn More About Me
-                </button>
-              </Link>
+              <p className="text-lg mt-6 text-gray-500 dark:text-gray-300">
+                Crafting seamless digital experiences with code and creativity.
+                Let's build something amazing together.
+              </p>
+              <button className="mt-8 px-6 py-3 bg-blue-600 text-white rounded-lg text-lg hover:bg-blue-700 transition duration-300">
+                Contact Me
+              </button>
             </div>
             <div className="md:w-1/2 flex justify-center mt-10 md:mt-0">
               <Image
                 src={Logo}
                 alt="Fortune"
-                className="w-full max-w-sm rounded-lg shadow-lg"
+                className="w-full max-w-sm rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300"
                 priority
               />
             </div>
           </section>
 
-          <section className="bg-gray-100 p-10 rounded-lg mt-16">
+          <section className="text-center bg-gray-100 p-10 rounded-lg mt-16">
             <h2 className="text-3xl font-bold text-center mb-6">About Me</h2>
             <p className="text-lg leading-relaxed mb-4">
               I have a passion for crafting elegant and efficient solutions to
@@ -44,6 +47,11 @@ export default function Home() {
               Officer in the Automotive Service industry and as a Customer
               Experience Management Professional in the Fintech sector.
             </p>
+            <Link href="/about">
+              <button className="mt-7 px-6 py-3 bg-blue-600 text-white rounded-lg text-lg hover:bg-blue-700 transition duration-300">
+                Learn More About Me
+              </button>
+            </Link>
           </section>
 
           <section className="text-center mt-20">

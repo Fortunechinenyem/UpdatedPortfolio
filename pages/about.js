@@ -51,10 +51,14 @@ const About = () => {
           emotional intelligence, and organizational leadership, which allow me
           to understand and meet client needs effectively.
         </p>
+        <p className="mt-6">
+          I also teach mums how to code and when I am not coding, I like to play
+          the guitar and spend time with family.
+        </p>
       </div>
 
       <div
-        className="mt-14 px-6 md:px-24 text-center"
+        className="mt-14 px-6 md:px-24 text-center text-lg md:text-xl leading-relaxed"
         data-aos="fade-down"
         data-aos-delay="400"
       >
@@ -65,8 +69,8 @@ const About = () => {
           I’ve honed my skills through diverse roles, from being a Center
           Operations Officer in the Automotive Service industry to a Customer
           Experience Management Professional in Fintech. Today, I channel these
-          experiences into developing software that not only works efficiently
-          but also serves users meaningfully.
+          experiences into developing software and technical support that not
+          only works efficiently but also serves users meaningfully.
         </p>
       </div>
 
