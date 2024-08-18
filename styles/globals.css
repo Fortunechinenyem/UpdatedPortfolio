@@ -14,15 +14,26 @@ html {
   scroll-behavior: smooth;
   margin: 0;
   padding: 0;
-  background: #f2f2ea;
-  color: #39393a;
+  background-color: var(--background-color);
+  color: var(--text-color);
   overflow-x: hidden;
   font-family: sans-serif;
   font-weight: var(--fw-reg);
 }
 :root {
+  --background-color: #f2f2ea;
+  --text-color: #39393a;
+  --primary-color: #007bff;
   --ff-primary: serif;
   --ff-secondary: "Merriweather", serif;
+}
+[data-theme="dark"] {
+  --background-color: #252323;
+  --text-color: #8e8e91;
+  --primary-color: #d1cbda;
+}
+a {
+  color: var(--primary-color);
 }
 .button {
   font-size: 18px;

@@ -69,31 +69,33 @@ function Footer() {
             </h3>
             <div className="flex space-x-6">
               <Link
-                href="https://www.linkedin.com/in/yourprofile"
+                href="https://www.linkedin.com/in/fortune-chinenyem-aribido-6578b8185/"
                 target="_blank"
               >
                 <BsLinkedin className="text-2xl text-gray-400 hover:text-white" />
               </Link>
               <Link
-                href="https://www.instagram.com/yourprofile"
+                href="https://www.instagram.com/iyaintech?igsh=bXc2a3pnMm55ZWl3"
                 target="_blank"
               >
                 <BsInstagram className="text-2xl text-gray-400 hover:text-white" />
               </Link>
-              <Link href="https://www.twitter.com/yourprofile" target="_blank">
+              <Link href="https://x.com/FortuneChineny1" target="_blank">
                 <BsTwitter className="text-2xl text-gray-400 hover:text-white" />
               </Link>
-              <Link href="https://www.facebook.com/yourprofile" target="_blank">
+              <Link
+                href="https://www.facebook.com/fortune.c.gcfr?mibextid=ZbWKwL"
+                target="_blank"
+              >
                 <BsFacebook className="text-2xl text-gray-400 hover:text-white" />
               </Link>
-              <Link href="https://www.github.com/yourprofile" target="_blank">
+              <Link href="https://github.com/Fortunechinenyem" target="_blank">
                 <BsGithub className="text-2xl text-gray-400 hover:text-white" />
               </Link>
             </div>
           </div>
         </div>
 
-        {/* Copyright */}
         <div className="mt-8 border-t border-gray-700 pt-4 text-center">
           <p className="text-gray-400">
             &copy; {new Date().getFullYear()} Fortune, IyaInTech. All rights
