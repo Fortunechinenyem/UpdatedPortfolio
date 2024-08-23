@@ -11,6 +11,7 @@ import Work4 from "../public/image/forport7.JPG";
 import Work5 from "../public/image/17th.PNG";
 import Work6 from "../public/image/17tth.PNG";
 import Work7 from "../public/image/17ttth.PNG";
+import Work8 from "../public/image/ego1.PNG";
 
 export default function MyWork() {
   useEffect(() => {
@@ -58,6 +59,12 @@ export default function MyWork() {
         "A practice e-commerce store built with Next.js and TypeScript. Features include user authentication, product management, shopping cart, and order history.",
       image: Work7,
       link: "https://kasuwa-x.vercel.app/",
+    },
+    {
+      title: "Ego-X",
+      description: "A personal finance application",
+      image: Work8,
+      link: "https://ego-x.vercel.app/",
     },
     {
       title: "Tawas Food Website",
