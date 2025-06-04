@@ -125,7 +125,7 @@ const Navbar = () => {
                     href="/myWork"
                     className="text-gray-800 hover:bg-gray-100 p-3 rounded-md text-base font-medium"
                   >
-                    Portfolio
+                    My Work
                   </Link>
                   <Link
                     href="/contact"
