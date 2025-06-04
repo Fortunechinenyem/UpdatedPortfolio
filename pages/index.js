@@ -112,8 +112,8 @@ export default function Home() {
               Interested in my full professional background? Download my CV.
             </p>
             <a
-              href="/my_cv.pdf"
-              download="Fortune_CV.pdf"
+              href="/mycv.pdf"
+              download="mycv.pdf"
               className="px-6 py-3 bg-blue-600 text-white rounded-lg text-lg hover:bg-blue-700 transition duration-300"
             >
               Download CV

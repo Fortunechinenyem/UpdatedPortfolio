@@ -5,13 +5,14 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 
 import Work1 from "../public/image/for portfolio3.PNG";
-import Work2 from "../public/image/portfoliotawaz.PNG";
+import Work2 from "../public/image/nriomap.JPG";
 import Work3 from "../public/image/forport6.JPG";
-import Work4 from "../public/image/forport7.JPG";
-import Work5 from "../public/image/17th.PNG";
+
+import Work5 from "../public/image/loveeyp.JPG";
 import Work6 from "../public/image/17tth.PNG";
-import Work7 from "../public/image/17ttth.PNG";
-import Work8 from "../public/image/ego1.PNG";
+import Work7 from "../public/image/revibep.JPG";
+import Work8 from "../public/image/gamingp.JPG";
+import Work9 from "../public/image/zenp.JPG";
 
 export default function MyWork() {
   useEffect(() => {
@@ -19,6 +20,13 @@ export default function MyWork() {
   }, []);
 
   const projects = [
+    {
+      title: "Zendtrax",
+      description:
+        "I collaborated on this live application. It is an application that  provide real-time package tracking, personalized service, and assistance with proper packaging. ",
+      image: Work9,
+      link: "https://www.zendtrax.co/",
+    },
     {
       title: "Flincap",
       description:
@@ -39,39 +47,32 @@ export default function MyWork() {
       image: Work6,
       link: "https://fortune-yellow-page.vercel.app/",
     },
+
     {
-      title: "Purposeful Path",
-      description:
-        "A full-stack platform created with Next.js, Tailwind CSS, and MongoDB. It helps job-seekers or budding entrepreneurs track their journey and receive guidance and mentorship.",
-      image: Work4,
-      link: "https://darmiobi.com/",
-    },
-    {
-      title: "Subscription App",
-      description:
-        "A coding challenge for a subscription app built with Next.js.",
+      title: "Loveey",
+      description: "A Valentine Application",
       image: Work5,
-      link: "https://subscription-app-seven.vercel.app/",
+      link: "https://loveey-eight.vercel.app/",
     },
     {
-      title: "Kasuwa-X",
-      description:
-        "A practice e-commerce store built with Next.js and TypeScript. Features include user authentication, product management, shopping cart, and order history.",
+      title: "ReVibe",
+      description: "An E-Commerce Application for Pre-loved items",
       image: Work7,
-      link: "https://kasuwa-x.vercel.app/",
+      link: "https://re-vibe.vercel.app/",
     },
     {
-      title: "Ego-X",
-      description: "A personal finance application",
-      image: Work8,
-      link: "https://ego-x.vercel.app/",
-    },
-    {
-      title: "Tawas Food Website",
+      title: "Gaming Mental Health App",
       description:
-        "A React.js-based food services website that allows clients to book orders from a diverse menu.",
+        "This app helps users manage their mental health through guided journaling, mood tracking, and daily challenges. it has a reward system for completing tasks.",
+      image: Work8,
+      link: "https://gaming-mentalhealth-app.vercel.app/",
+    },
+    {
+      title: "Nrioma",
+      description:
+        "A food services website that allows clients to book orders from a diverse menu.",
       image: Work2,
-      link: "http://tawastastytreats.ng/",
+      link: "https://nrioma.vercel.app/",
     },
   ];
 
