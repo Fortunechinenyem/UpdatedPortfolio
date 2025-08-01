@@ -12,7 +12,7 @@ import {
 } from "react-icons/fa";
 import { FiAward, FiUsers } from "react-icons/fi";
 
-import AboutHero from "../public/image/about.jpg";
+import AboutHero from "../public/image/hero.jpg";
 
 const About = () => {
   const fadeInUp = {
