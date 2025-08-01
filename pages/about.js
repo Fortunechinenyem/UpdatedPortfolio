@@ -22,7 +22,6 @@ const About = () => {
 
   return (
     <DefaultLayout>
-      {/* Hero Section */}
       <div className="relative h-[70vh] w-full overflow-hidden">
         <div className="absolute inset-0">
           <Image

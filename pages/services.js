@@ -1,6 +1,6 @@
 import DefaultLayout from "@/layout/DefaultLayout";
 import Image from "next/image";
-import TechStackImage from "../public/image/about.jpg";
+import TechStackImage from "../public/image/hero.jpg";
 
 export default function Services() {
   return (
