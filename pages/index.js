@@ -183,6 +183,7 @@ export default function Home() {
                     "Node.js",
                     "HTML/CSS",
                     "MongoDB",
+                    "Firebase",
                     "Version Control (Git)",
                     "API Integration",
                     "Testing and Debugging",

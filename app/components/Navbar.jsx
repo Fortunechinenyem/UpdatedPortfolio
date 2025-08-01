@@ -107,15 +107,15 @@ const Navbar = () => {
       >
         {/* Semi-transparent overlay */}
         <div
-          className={`absolute inset-0 bg-black/70 backdrop-blur-md transition-opacity duration-300 ${
+          className={`absolute inset-0 bg-black/50 transition-opacity duration-300 ${
             isOpen ? "opacity-100" : "opacity-0"
           }`}
           onClick={() => setIsOpen(false)}
         ></div>
 
-        {/* Menu panel - using a dark blue background for better contrast */}
+        {/* Menu panel - now using solid white background */}
         <div
-          className={`absolute right-0 top-0 h-full w-4/5 max-w-sm bg-blue-800 shadow-2xl transform transition-transform duration-300 ease-in-out ${
+          className={`absolute right-0 top-0 h-full w-4/5 max-w-sm bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${
             isOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -128,12 +128,11 @@ const Navbar = () => {
                   width={100}
                   height={40}
                   priority
-                  className="invert" // Makes logo white on dark background
                 />
               </Link>
               <button
                 onClick={() => setIsOpen(false)}
-                className="p-2 rounded-lg text-white hover:bg-blue-700 transition-all duration-200"
+                className="p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-all duration-200"
                 aria-label="Close menu"
               >
                 <svg
@@ -166,11 +165,11 @@ const Navbar = () => {
                 Contact
               </MobileNavLink>
 
-              <div className="pt-4 mt-8 border-t border-blue-700">
+              <div className="pt-4 mt-8 border-t border-gray-200">
                 <Link
                   href="/mycv.pdf"
                   download="Fortune_CV.pdf"
-                  className="block w-full px-4 py-3 bg-white text-blue-800 rounded-lg font-medium text-center hover:bg-gray-100 transition-all duration-300"
+                  className="block w-full px-4 py-3 bg-blue-600 text-white rounded-lg font-medium text-center hover:bg-blue-700 transition-all duration-300"
                   onClick={() => setIsOpen(false)}
                 >
                   Download Resume
@@ -178,7 +177,7 @@ const Navbar = () => {
               </div>
             </nav>
 
-            <div className="mt-auto pt-8 text-sm text-blue-300">
+            <div className="mt-auto pt-8 text-sm text-gray-500">
               <p>© {new Date().getFullYear()} Fortune. All rights reserved.</p>
             </div>
           </div>
@@ -200,12 +199,12 @@ const NavLink = ({ href, children }) => (
   </Link>
 );
 
-// Reusable MobileNavLink component - updated for dark theme
+// Reusable MobileNavLink component - updated with solid background
 const MobileNavLink = ({ href, onClick, children }) => (
   <Link href={href} passHref>
     <div
       onClick={onClick}
-      className="block px-4 py-3 text-white hover:bg-blue-700 rounded-lg font-medium transition-colors duration-200"
+      className="block px-4 py-3 text-gray-700 hover:bg-blue-700 rounded-lg font-medium transition-colors duration-200 bg-white"
     >
       {children}
     </div>
