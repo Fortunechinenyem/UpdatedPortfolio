@@ -70,7 +70,6 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -99,7 +98,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <div
         className={`md:hidden fixed inset-0 z-40 transition-all duration-300 ease-in-out ${
           isOpen ? "opacity-100 visible" : "opacity-0 invisible"
@@ -185,7 +183,6 @@ const Navbar = () => {
   );
 };
 
-// Reusable NavLink component
 const NavLink = ({ href, children }) => (
   <Link href={href} passHref>
     <div className="relative px-4 py-2 group">
@@ -197,7 +194,6 @@ const NavLink = ({ href, children }) => (
   </Link>
 );
 
-// Reusable MobileNavLink component
 const MobileNavLink = ({ href, onClick, children }) => (
   <Link href={href} passHref>
     <div
