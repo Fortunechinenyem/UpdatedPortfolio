@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+
 import DefaultLayout from "@/layout/DefaultLayout";
 import { FiExternalLink, FiGithub } from "react-icons/fi";
 import { motion } from "framer-motion";
@@ -201,7 +201,6 @@ const MyWork = () => {
           </p>
         </motion.section>
 
-        {/* Filter Buttons */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
           {filters.map((filter) => (
             <button
