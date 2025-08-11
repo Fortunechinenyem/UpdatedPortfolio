@@ -31,7 +31,6 @@ const About = () => {
 
   return (
     <DefaultLayout>
-      {/* Hero Section - Enhanced with floating particles */}
       <div className="relative h-[70vh] w-full overflow-hidden">
         <div className="absolute inset-0">
           <Image
@@ -44,7 +43,6 @@ const About = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/70 to-transparent" />
         </div>
 
-        {/* Floating particles */}
         {[...Array(15)].map((_, i) => (
           <motion.div
             key={i}
@@ -274,7 +272,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Core Values Section - Enhanced with floating cards */}
       <section className="py-20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <motion.div
@@ -340,7 +337,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Beyond Code Section - Enhanced with floating elements */}
       <section className="bg-gray-50 dark:bg-gray-900 py-20 relative overflow-hidden">
         <div className="absolute -top-20 -left-20 w-64 h-64 bg-blue-500/10 rounded-full filter blur-xl"></div>
         <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-blue-500/10 rounded-full filter blur-xl"></div>
