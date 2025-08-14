@@ -51,7 +51,7 @@ const Navbar = () => {
             <Link
               href="/mycv.pdf"
               download="Fortune_CV.pdf"
-              className="ml-4 px-5 py-2 bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-lg font-medium hover:from-blue-700 hover:to-blue-600 transition-all duration-300 shadow-sm hover:shadow-md flex items-center"
+              className="ml-4 px-5 py-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-1 shadow-lg  text-white rounded-lg font-medium hover:from-blue-700 hover:to-blue-600 transition-all duration-300 shadow-sm hover:shadow-md flex items-center"
             >
               <svg
                 className="w-4 h-4 mr-2"
@@ -70,7 +70,6 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -99,13 +98,11 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <div
         className={`md:hidden fixed inset-0 z-40 transition-all duration-300 ease-in-out ${
           isOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       >
-        {/* Semi-transparent overlay */}
         <div
           className={`absolute inset-0 bg-black/50 transition-opacity duration-300 ${
             isOpen ? "opacity-100" : "opacity-0"
@@ -113,7 +110,6 @@ const Navbar = () => {
           onClick={() => setIsOpen(false)}
         ></div>
 
-        {/* Menu panel - now using solid white background */}
         <div
           className={`absolute right-0 top-0 h-full w-4/5 max-w-sm bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${
             isOpen ? "translate-x-0" : "translate-x-full"

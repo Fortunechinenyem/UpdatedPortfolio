@@ -15,10 +15,9 @@ import {
 
 function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300 pt-16 pb-8">
+    <footer className="bg-gray-600 text-gray-300 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-          {/* Brand Info */}
           <div className="md:col-span-4">
             <Link href="/" className="flex items-center group">
               <Image
@@ -59,7 +58,6 @@ function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
           <div className="md:col-span-3 md:col-start-6">
             <h3 className="text-xl font-semibold text-white mb-6 relative inline-block">
               <span className="relative z-10">Quick Links</span>
@@ -85,7 +83,6 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Social Links */}
           <div className="md:col-span-4 md:col-start-9">
             <h3 className="text-xl font-semibold text-white mb-6 relative inline-block">
               <span className="relative z-10">Connect With Me</span>
