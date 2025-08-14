@@ -169,7 +169,7 @@ const Navbar = () => {
                 <Link
                   href="/mycv.pdf"
                   download="Fortune_CV.pdf"
-                  className="block w-full px-4 py-3 bg-blue-600 text-white rounded-lg font-medium text-center hover:bg-blue-700 transition-all duration-300"
+                  className="block w-full px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl font-medium text-center hover:bg-blue-700 transition-all duration-300"
                   onClick={() => setIsOpen(false)}
                 >
                   Download Resume
@@ -187,7 +187,6 @@ const Navbar = () => {
   );
 };
 
-// Reusable NavLink component
 const NavLink = ({ href, children }) => (
   <Link href={href} passHref>
     <div className="relative px-4 py-2 group">
@@ -199,7 +198,6 @@ const NavLink = ({ href, children }) => (
   </Link>
 );
 
-// Reusable MobileNavLink component - updated with solid background
 const MobileNavLink = ({ href, onClick, children }) => (
   <Link href={href} passHref>
     <div

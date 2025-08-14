@@ -261,7 +261,7 @@ const ContactUs = () => {
                   className={`w-full flex items-center justify-center px-6 py-3 rounded-lg font-medium text-white transition-all ${
                     submitting
                       ? "bg-blue-400"
-                      : "bg-gradient-to-r from-blue-600 to-blue-400 hover:from-blue-700 hover:to-blue-500 shadow-lg hover:shadow-xl"
+                      : "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl  hover:from-blue-700 hover:to-blue-500 shadow-lg hover:shadow-xl"
                   }`}
                 >
                   {submitting ? (
