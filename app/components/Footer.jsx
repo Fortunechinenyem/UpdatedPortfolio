@@ -5,12 +5,12 @@ import Logo from "../../public/image/Fortune.svg";
 import {
   BsLinkedin,
   BsInstagram,
-  BsTwitter,
   BsFacebook,
   BsGithub,
   BsEnvelope,
   BsPhone,
   BsGeoAlt,
+  BsTwitter,
 } from "react-icons/bs";
 
 function Footer() {
