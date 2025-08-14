@@ -3,6 +3,7 @@ import Link from "next/link";
 import DefaultLayout from "@/layout/DefaultLayout";
 import Logo from "../public/image/3059.jpg";
 import { motion } from "framer-motion";
+import PersonalityShowcase from "@/app/components/PersonalityShowcase";
 
 export default function Home() {
   return (
@@ -76,7 +77,6 @@ export default function Home() {
             </motion.div>
           </div>
 
-          {/* Profile Image */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -197,9 +197,7 @@ export default function Home() {
           <div className="absolute top-1/3 right-1/4 w-24 h-24 bg-blue-200 dark:bg-blue-800 rounded-full filter blur-xl opacity-20 animate-float animation-delay-2000"></div>
         </section>
 
-        {/* Skills Section - Enhanced with animated cards */}
         <section className="relative py-20 bg-gradient-to-l from-gray-50 to-blue-50 dark:from-gray-800 dark:to-gray-900 rounded-3xl px-8 overflow-hidden">
-          {/* Decorative background elements */}
           <div className="absolute top-0 right-0 w-48 h-48 bg-blue-600/5 rounded-full filter blur-xl"></div>
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-600/5 rounded-full filter blur-xl"></div>
 
@@ -345,6 +343,13 @@ export default function Home() {
               </span>
             </a>
           </div>
+        </section>
+
+        <section
+          id="personality-showcase"
+          className="py-20 text-center relative overflow-hidden"
+        >
+          <PersonalityShowcase />
         </section>
       </main>
     </DefaultLayout>
