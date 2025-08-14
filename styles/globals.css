@@ -21,7 +21,7 @@ html {
   font-weight: var(--fw-reg);
 }
 :root {
-  --background-color: #dcdde0;
+  --background-color: #d3d4db;
   --text-color: #39393a;
   --primary-color: #007bff;
   --ff-primary: serif;
