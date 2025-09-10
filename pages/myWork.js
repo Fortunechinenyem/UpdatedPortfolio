@@ -20,6 +20,7 @@ import Work5 from "../public/image/loveeyp.JPG";
 import Work7 from "../public/image/revibep.JPG";
 import Work8 from "../public/image/gamingp.JPG";
 import Work9 from "../public/image/zenp.JPG";
+import Work10 from "../public/image/fj.JPG";
 
 const MyWork = () => {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -64,6 +65,22 @@ const MyWork = () => {
         },
         { name: "MySQL", icon: <FaDatabase className="text-blue-600" /> },
         { name: "Node.js", icon: <FaNodeJs className="text-green-500" /> },
+      ],
+    },
+    {
+      title: "FJ Unique Services",
+      description: "A simple food services website for a small business .",
+      image: Work10,
+      link: "https://fj-unique-services.vercel.app/",
+      github: null,
+      tags: ["Next.js", "Whatsapp"],
+      role: "Web Developer",
+      impact: "Improved leads and sales with better user experience",
+      tech: [
+        {
+          name: "Next.js",
+          icon: <SiNextdotjs className="text-black dark:text-white" />,
+        },
       ],
     },
     {
