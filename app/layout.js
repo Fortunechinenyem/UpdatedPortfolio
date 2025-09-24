@@ -4,7 +4,7 @@ import Head from "next/head";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Fortune Chinenyem | Software Developer & Technical Specialist",
+  title: "Fortune Sorochi Aribido | Software Developer & Technical Specialist",
   description:
     "Professional software developer specializing in JavaScript, React, Next.js, and Node.js. Building modern web applications with focus on performance and user experience.",
   keywords: [
@@ -19,19 +19,19 @@ export const metadata = {
     "full stack developer",
     "technical support specialist",
   ],
-  authors: [{ name: "Fortune Chinenyem" }],
+  authors: [{ name: "Fortune Sorochi Aribido" }],
   openGraph: {
-    title: "Fortune Chinenyem | Software Developer",
+    title: "Fortune Sorochi Aribido | Software Developer",
     description:
       "Professional software developer specializing in modern web technologies",
     url: "https://fortunesportfolio.vercel.app/",
-    siteName: "Fortune Chinenyem Portfolio",
+    siteName: "Fortune Sorochi Aribido Portfolio",
     images: [
       {
         url: "https://fortunesportfolio.vercel.app/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Fortune Chinenyem - Software Developer",
+        alt: "Fortune Sorochi Aribido - Software Developer",
       },
     ],
     locale: "en_US",
@@ -39,7 +39,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fortune Chinenyem | Software Developer",
+    title: "Fortune Sorochi Aribido | Software Developer",
     description:
       "Professional software developer specializing in modern web technologies",
     creator: "@FortuneChineny1",
@@ -55,7 +55,7 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content={metadata.description} />
         <meta name="keywords" content={metadata.keywords.join(", ")} />
-        <meta name="author" content="Fortune Chinenyem" />
+        <meta name="author" content="Fortune Sorochi Aribido" />
 
         {/* Favicon */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -65,7 +65,7 @@ export default function RootLayout({ children }) {
 
         <link
           rel="canonical"
-          href="https://www.linkedin.com/in/fortune-chinenyem-aribido-6578b8185/"
+          href="https://www.linkedin.com/in/fortune-sorochi-aribido-6578b8185/"
         />
 
         {/* Open Graph / Facebook */}
