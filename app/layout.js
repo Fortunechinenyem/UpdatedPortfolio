@@ -1,10 +1,13 @@
 import { Inter } from "next/font/google";
-import Head from "next/head";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 export const metadata = {
-  title: "Fortune Sorochi Aribido | Software Developer & Technical Specialist",
+  title: "Fortune Sorochi Aribido | Software Developer",
   description:
     "Professional software developer specializing in JavaScript, React, Next.js, and Node.js. Building modern web applications with focus on performance and user experience.",
   keywords: [
@@ -28,7 +31,7 @@ export const metadata = {
     siteName: "Fortune Sorochi Aribido Portfolio",
     images: [
       {
-        url: "https://fortunesportfolio.vercel.app/images/og-image.jpg",
+        url: "/images/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Fortune Sorochi Aribido - Software Developer",
@@ -43,19 +46,20 @@ export const metadata = {
     description:
       "Professional software developer specializing in modern web technologies",
     creator: "@FortuneChineny1",
-    images: ["https://x.com/images/twitter-card.jpg"],
+    images: ["/images/twitter-card.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <Head>
+    <html lang="en" className="dark">
+      <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content={metadata.description} />
-        <meta name="keywords" content={metadata.keywords.join(", ")} />
-        <meta name="author" content="Fortune Sorochi Aribido" />
 
         {/* Favicon */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -68,37 +72,18 @@ export default function RootLayout({ children }) {
           href="https://www.linkedin.com/in/fortune-sorochi-aribido-6578b8185/"
         />
 
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={metadata.openGraph.url} />
-        <meta property="og:title" content={metadata.openGraph.title} />
-        <meta
-          property="og:description"
-          content={metadata.openGraph.description}
+        <meta name="theme-color" content="#0f172a" />
+
+        {/* Preload critical resources */}
+        <link
+          rel="preload"
+          href="/_next/static/media/your-critical-image.jpg"
+          as="image"
         />
-        <meta property="og:image" content={metadata.openGraph.images[0].url} />
-
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:url" content={metadata.openGraph.url} />
-        <meta name="twitter:title" content={metadata.twitter.title} />
-        <meta
-          name="twitter:description"
-          content={metadata.twitter.description}
-        />
-        <meta name="twitter:image" content={metadata.twitter.images[0]} />
-
-        <meta name="theme-color" content="#ffffff" />
-
-        <meta
-          name="google-site-verification"
-          content="your-verification-code"
-        />
-
-        <title>{metadata.title}</title>
-        <style>{inter.styles}</style>
-      </Head>
-      <body className={`${inter.className} bg-white text-gray-900`}>
+      </head>
+      <body
+        className={`${inter.variable} antialiased bg-slate-950 text-white min-h-screen font-sans`}
+      >
         {children}
       </body>
     </html>

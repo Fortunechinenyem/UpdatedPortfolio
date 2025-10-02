@@ -1,208 +1,318 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import Logo from "../../public/image/Fortune.svg";
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+import Link from "next/link";
+import { useState, useEffect } from "react";
+
+function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
+      setIsScrolled(window.scrollY > 20);
+
+      const scrollTop = window.scrollY;
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      setScrollProgress(Math.min(progress, 100));
     };
+
     window.addEventListener("scroll", handleScroll);
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      const target = event.target;
+      if (
+        isMenuOpen &&
+        !target.closest(".mobile-menu-container") &&
+        !target.closest(".mobile-menu-button")
+      ) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, [isMenuOpen]);
+
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-sm"
-          : "bg-white/90 backdrop-blur-sm"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled
+          ? "bg-slate-900/95 backdrop-blur-xl border-b border-blue-500/20 shadow-2xl"
+          : "bg-slate-900/90 backdrop-blur-lg"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          {/* Logo */}
-          <Link href="/" className="flex items-center group">
-            <Image
-              src={Logo}
-              alt="Fortune"
-              width={120}
-              height={50}
-              priority
-              className="transition-transform duration-300 group-hover:scale-105"
-            />
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+        <div className="flex justify-between items-center py-3 sm:py-4">
+          {/* Logo - Enhanced for mobile */}
+          <Link
+            href="/"
+            className="flex items-center space-x-2 sm:space-x-3 md:space-x-4 group flex-shrink-0"
+          >
+            <div className="relative">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-600 via-blue-500 to-blue-700 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg sm:shadow-2xl transform group-hover:scale-110 transition-all duration-300 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 transform translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+                <span className="text-lg sm:text-xl font-black text-white relative z-10">
+                  F
+                </span>
+              </div>
+              <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-r from-blue-600 to-blue-500 blur-lg sm:blur-xl opacity-30 -z-10 group-hover:opacity-50 transition-opacity duration-300"></div>
+            </div>
+            <div className="hidden xs:block">
+              <span className="text-xl sm:text-2xl font-black bg-gradient-to-r from-white to-blue-400 bg-clip-text text-transparent leading-tight">
+                Fortune
+              </span>
+              <div className="text-xs text-blue-300 font-medium tracking-wider hidden sm:block">
+                Full Stack Developer
+              </div>
+            </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
-            <NavLink href="/">Home</NavLink>
-            <NavLink href="/about">About</NavLink>
-            <NavLink href="/myWork">Work</NavLink>
-            <NavLink href="/contact">
-              <span className="relative z-10">Contact</span>
-              <span className="absolute inset-0 bg-blue-600 rounded-lg opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
-            </NavLink>
+          {/* Desktop Navigation - Improved spacing */}
+          <div className="hidden lg:flex items-center space-x-0 xl:space-x-1 flex-1 justify-center max-w-2xl">
+            <Link
+              href="/"
+              className="relative px-4 xl:px-5 py-2.5 text-white hover:text-blue-200 transition-all duration-300 font-semibold group text-sm xl:text-base"
+            >
+              <span className="relative z-10">Home</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-blue-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-blue-500 transform -translate-x-1/2 group-hover:w-12 transition-all duration-300"></div>
+            </Link>
 
             <Link
-              href="/mycv.pdf"
-              download="Fortune_CV.pdf"
-              className="ml-4 px-5 py-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-1 shadow-lg  text-white rounded-lg font-medium hover:from-blue-700 hover:to-blue-600 transition-all duration-300 shadow-sm hover:shadow-md flex items-center"
+              href="/about"
+              className="relative px-4 xl:px-5 py-2.5 text-white hover:text-amber-200 transition-all duration-300 font-semibold group text-sm xl:text-base"
             >
-              <svg
-                className="w-4 h-4 mr-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                />
-              </svg>
-              Resume
+              <span className="relative z-10">About</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-amber-500/10 to-yellow-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-yellow-500 transform -translate-x-1/2 group-hover:w-12 transition-all duration-300"></div>
+            </Link>
+
+            <Link
+              href="/myWork"
+              className="relative px-4 xl:px-5 py-2.5 text-white hover:text-cyan-200 transition-all duration-300 font-semibold group text-sm xl:text-base"
+            >
+              <span className="relative z-10">Work</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 transform -translate-x-1/2 group-hover:w-12 transition-all duration-300"></div>
+            </Link>
+
+            <Link
+              href="/contact"
+              className="relative px-4 xl:px-5 py-2.5 text-white hover:text-green-200 transition-all duration-300 font-semibold group text-sm xl:text-base"
+            >
+              <span className="relative z-10">Contact</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-green-600/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-green-600 transform -translate-x-1/2 group-hover:w-12 transition-all duration-300"></div>
             </Link>
           </div>
 
-          <div className="md:hidden flex items-center">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none transition-all duration-200"
-              aria-label="Toggle menu"
+          {/* Desktop CTA Button */}
+          <div className="hidden lg:block flex-shrink-0">
+            <Link href="/mycv.pdf" download="Fortune_CV.pdf">
+              <button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 px-6 xl:px-8 py-2.5 rounded-lg text-sm xl:text-base">
+                Resume
+              </button>
+            </Link>
+          </div>
+
+          {/* Mobile menu button and CTA */}
+          <div className="lg:hidden flex items-center space-x-2 sm:space-x-3">
+            {/* Small screen CTA */}
+            <Link
+              href="/mycv.pdf"
+              download="Fortune_CV.pdf"
+              className="hidden xs:block sm:hidden"
             >
-              <div className="w-6 relative">
+              <button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold shadow-lg text-xs px-3 py-2 rounded-lg">
+                Resume
+              </button>
+            </Link>
+
+            {/* Medium screen CTA */}
+            <Link
+              href="/mycv.pdf"
+              download="Fortune_CV.pdf"
+              className="hidden sm:block"
+            >
+              <button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold shadow-lg px-4 py-2 rounded-lg">
+                Resume
+              </button>
+            </Link>
+
+            {/* Mobile menu button */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsMenuOpen(!isMenuOpen);
+              }}
+              className="mobile-menu-button relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-slate-800/80 backdrop-blur-sm border border-blue-500/30 rounded-lg sm:rounded-xl hover:border-blue-400/60 transition-all duration-300 group"
+            >
+              <div className="flex flex-col items-center justify-center w-5 h-5 sm:w-6 sm:h-6">
                 <span
-                  className={`block absolute h-0.5 w-6 bg-current transform transition duration-300 ease-in-out ${
-                    isOpen ? "rotate-45 translate-y-1.5" : "-translate-y-1.5"
+                  className={`block h-0.5 w-5 sm:w-6 bg-white transition-all duration-300 ${
+                    isMenuOpen ? "rotate-45 translate-y-1.5" : "-translate-y-1"
                   }`}
                 ></span>
                 <span
-                  className={`block absolute h-0.5 w-6 bg-current transform transition duration-300 ease-in-out ${
-                    isOpen ? "opacity-0" : "opacity-100"
+                  className={`block h-0.5 w-5 sm:w-6 bg-white transition-all duration-300 mt-1 sm:mt-1.5 ${
+                    isMenuOpen ? "opacity-0" : "opacity-100"
                   }`}
                 ></span>
                 <span
-                  className={`block absolute h-0.5 w-6 bg-current transform transition duration-300 ease-in-out ${
-                    isOpen ? "-rotate-45 translate-y-1.5" : "translate-y-1.5"
+                  className={`block h-0.5 w-5 sm:w-6 bg-white transition-all duration-300 mt-1 sm:mt-1.5 ${
+                    isMenuOpen ? "-rotate-45 -translate-y-2" : "translate-y-1"
                   }`}
                 ></span>
               </div>
+
+              <div className="absolute inset-0 rounded-lg sm:rounded-xl bg-gradient-to-r from-blue-600/20 to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
             </button>
           </div>
         </div>
-      </div>
 
-      <div
-        className={`md:hidden fixed inset-0 z-40 transition-all duration-300 ease-in-out ${
-          isOpen ? "opacity-100 visible" : "opacity-0 invisible"
-        }`}
-      >
-        <div
-          className={`absolute inset-0 bg-black/50 transition-opacity duration-300 ${
-            isOpen ? "opacity-100" : "opacity-0"
-          }`}
-          onClick={() => setIsOpen(false)}
-        ></div>
-
-        <div
-          className={`absolute right-0 top-0 h-full w-4/5 max-w-sm bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${
-            isOpen ? "translate-x-0" : "translate-x-full"
-          }`}
-        >
-          <div className="flex flex-col h-full p-6">
-            <div className="flex justify-between items-center mb-8">
-              <Link href="/" onClick={() => setIsOpen(false)}>
-                <Image
-                  src={Logo}
-                  alt="Fortune"
-                  width={100}
-                  height={40}
-                  priority
-                />
-              </Link>
-              <button
-                onClick={() => setIsOpen(false)}
-                className="p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-all duration-200"
-                aria-label="Close menu"
+        {/* Mobile Navigation - Enhanced */}
+        {isMenuOpen && (
+          <div className="mobile-menu-container lg:hidden absolute top-full left-0 right-0 bg-gray-900 backdrop-blur-2xl border-t border-blue-500/20 shadow-2xl animate-in slide-in-from-top duration-300">
+            <div className="px-3 sm:px-4 py-4 sm:py-6 space-y-2 max-h-[80vh] overflow-y-auto">
+              {/* Home Link */}
+              <Link
+                href="/"
+                className="flex items-center justify-between p-3 sm:p-4 bg-gradient-to-r from-slate-800/80 to-slate-800/60 rounded-xl sm:rounded-2xl border border-blue-500/20 hover:border-blue-400/50 transition-all duration-300 group"
+                onClick={() => setIsMenuOpen(false)}
               >
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </button>
-            </div>
+                <div className="flex items-center space-x-3 sm:space-x-4">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg flex-shrink-0">
+                    <div className="w-1.5 h-3 sm:w-2 sm:h-4 bg-white rounded-full"></div>
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <div className="text-base sm:text-lg font-bold text-white truncate">
+                      Home
+                    </div>
+                    <div className="text-xs sm:text-sm text-blue-300 truncate">
+                      Welcome Page
+                    </div>
+                  </div>
+                </div>
+                <div className="text-blue-400 transform group-hover:translate-x-1 transition-transform duration-300 flex-shrink-0 ml-2">
+                  →
+                </div>
+              </Link>
 
-            <nav className="flex-1 space-y-4">
-              <MobileNavLink href="/" onClick={() => setIsOpen(false)}>
-                Home
-              </MobileNavLink>
-              <MobileNavLink href="/about" onClick={() => setIsOpen(false)}>
-                About
-              </MobileNavLink>
-              <MobileNavLink href="/myWork" onClick={() => setIsOpen(false)}>
-                Work
-              </MobileNavLink>
-              <MobileNavLink href="/contact" onClick={() => setIsOpen(false)}>
-                Contact
-              </MobileNavLink>
+              {/* About Link */}
+              <Link
+                href="/about"
+                className="flex items-center justify-between p-3 sm:p-4 bg-gradient-to-r from-slate-800/80 to-slate-800/60 rounded-xl sm:rounded-2xl border border-amber-500/20 hover:border-amber-400/50 transition-all duration-300 group"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <div className="flex items-center space-x-3 sm:space-x-4">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg flex-shrink-0">
+                    <div className="w-2 h-2 sm:w-3 sm:h-3 bg-white rounded-full"></div>
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <div className="text-base sm:text-lg font-bold text-white truncate">
+                      About Me
+                    </div>
+                    <div className="text-xs sm:text-sm text-amber-300 truncate">
+                      My Story & Skills
+                    </div>
+                  </div>
+                </div>
+                <div className="text-amber-400 transform group-hover:translate-x-1 transition-transform duration-300 flex-shrink-0 ml-2">
+                  →
+                </div>
+              </Link>
 
-              <div className="pt-4 mt-8 border-t border-gray-200">
-                <Link
-                  href="/mycv.pdf"
-                  download="Fortune_CV.pdf"
-                  className="block w-full px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl font-medium text-center hover:bg-blue-700 transition-all duration-300"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Download Resume
-                </Link>
+              <Link
+                href="/myWork"
+                className="flex items-center justify-between p-3 sm:p-4 bg-gradient-to-r from-slate-800/80 to-slate-800/60 rounded-xl sm:rounded-2xl border border-cyan-500/20 hover:border-cyan-400/50 transition-all duration-300 group"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <div className="flex items-center space-x-3 sm:space-x-4">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg flex-shrink-0">
+                    <div className="w-2 h-2 sm:w-3 sm:h-3 bg-white rounded-sm"></div>
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <div className="text-base sm:text-lg font-bold text-white truncate">
+                      My Work
+                    </div>
+                    <div className="text-xs sm:text-sm text-cyan-300 truncate">
+                      Projects & Portfolio
+                    </div>
+                  </div>
+                </div>
+                <div className="text-cyan-400 transform group-hover:translate-x-1 transition-transform duration-300 flex-shrink-0 ml-2">
+                  →
+                </div>
+              </Link>
+
+              {/* Contact Link */}
+              <Link
+                href="/contact"
+                className="flex items-center justify-between p-3 sm:p-4 bg-gradient-to-r from-slate-800/80 to-slate-800/60 rounded-xl sm:rounded-2xl border border-green-500/20 hover:border-green-400/50 transition-all duration-300 group"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <div className="flex items-center space-x-3 sm:space-x-4">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg flex-shrink-0">
+                    <div className="w-2 h-2 sm:w-3 sm:h-3 bg-white rounded-sm rotate-45"></div>
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <div className="text-base sm:text-lg font-bold text-white truncate">
+                      Contact
+                    </div>
+                    <div className="text-xs sm:text-sm text-green-300 truncate">
+                      Get In Touch
+                    </div>
+                  </div>
+                </div>
+                <div className="text-green-400 transform group-hover:translate-x-1 transition-transform duration-300 flex-shrink-0 ml-2">
+                  →
+                </div>
+              </Link>
+
+              {/* Action Buttons - Stacked Vertically */}
+              <div className="pt-3 sm:pt-4 border-t border-blue-500/30">
+                <div className="space-y-3">
+                  {" "}
+                  {/* Changed to vertical stack */}
+                  <Link
+                    href="/mycv.pdf"
+                    download="Fortune_CV.pdf"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <button className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base py-3 rounded-lg">
+                      Download Resume
+                    </button>
+                  </Link>
+                  <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
+                    <button className="w-full border-2 border-blue-400 text-blue-400 hover:bg-blue-400/20 hover:text-white font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base py-3 rounded-lg">
+                      Contact Me
+                    </button>
+                  </Link>
+                </div>
               </div>
-            </nav>
-
-            <div className="mt-auto pt-8 text-sm text-gray-500">
-              <p>© {new Date().getFullYear()} Fortune. All rights reserved.</p>
             </div>
           </div>
-        </div>
+        )}
+      </div>
+
+      <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-blue-600 to-transparent opacity-50">
+        <div
+          className="h-full bg-gradient-to-r from-blue-600 to-blue-500 transition-all duration-300"
+          style={{
+            width: `${scrollProgress}%`,
+          }}
+        ></div>
       </div>
     </nav>
   );
-};
-
-const NavLink = ({ href, children }) => (
-  <Link href={href} passHref>
-    <div className="relative px-4 py-2 group">
-      <span className="relative z-10 text-gray-700 hover:text-blue-600 transition-colors duration-300 font-medium">
-        {children}
-      </span>
-      <span className="absolute bottom-1 left-1/2 w-0 h-0.5 bg-blue-600 group-hover:w-4/5 group-hover:left-[10%] transition-all duration-300"></span>
-    </div>
-  </Link>
-);
-
-const MobileNavLink = ({ href, onClick, children }) => (
-  <Link href={href} passHref>
-    <div
-      onClick={onClick}
-      className="block px-4 py-3 text-gray-700 hover:bg-blue-700 rounded-lg font-medium transition-colors duration-200 bg-white"
-    >
-      {children}
-    </div>
-  </Link>
-);
+}
 
 export default Navbar;

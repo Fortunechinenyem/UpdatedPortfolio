@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { GoLocation } from "react-icons/go";
-
 import { HiOutlineMailOpen, HiOutlinePhone } from "react-icons/hi";
 import { FiSend } from "react-icons/fi";
 import { FaCheckCircle, FaPaperPlane } from "react-icons/fa";
@@ -89,91 +88,137 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 py-16 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-40 right-20 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-1/4 w-64 h-64 bg-blue-600/5 rounded-full blur-3xl"></div>
+      </div>
+
       <motion.div
         initial="hidden"
         animate={isVisible ? "visible" : "hidden"}
         variants={containerVariants}
-        className="max-w-7xl mx-auto"
+        className="max-w-7xl mx-auto relative z-10"
       >
-        <motion.div variants={itemVariants} className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400 mb-6">
-            Let's Connect
+        {/* Header Section */}
+        <motion.div variants={itemVariants} className="text-center mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="inline-flex items-center px-6 py-3 rounded-full bg-blue-500/10 border border-blue-500/20 backdrop-blur-sm mb-8"
+          >
+            <div className="w-2 h-2 bg-blue-500 rounded-full mr-2 animate-pulse"></div>
+            <span className="text-blue-400 text-sm font-medium">
+              Get In Touch
+            </span>
+          </motion.div>
+
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white mb-6">
+            Let's <span className="text-blue-400">Connect</span>
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Got a proposal or just want to say hello? I'd love to hear from you!
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+            Got a proposal or just want to say hello? I'd love to hear from you
+            and discuss how we can work together!
           </p>
         </motion.div>
 
         <motion.div
           variants={itemVariants}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8"
         >
+          {/* Contact Information */}
           <motion.div
             variants={itemVariants}
-            className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl"
+            className="bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl shadow-2xl border border-slate-700 hover:border-blue-500/50 transition-all duration-500"
           >
-            <h2 className="text-2xl font-bold mb-8 text-gray-800 dark:text-white">
+            <h2 className="text-3xl font-bold mb-8 text-white">
               Contact Information
             </h2>
 
-            <div className="space-y-6">
-              <div className="flex items-start">
-                <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded-full mr-4">
-                  <GoLocation className="text-blue-600 dark:text-blue-400 text-xl" />
+            <div className="space-y-8">
+              <motion.div
+                whileHover={{ x: 5 }}
+                className="flex items-start group"
+              >
+                <div className="p-4 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-xl mr-6 group-hover:scale-110 transition-transform duration-300 border border-blue-500/30">
+                  <GoLocation className="text-blue-400 text-2xl" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-medium text-gray-800 dark:text-white">
+                  <h3 className="text-xl font-semibold text-white mb-2">
                     Location
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    Lagos, Nigeria
-                  </p>
+                  <p className="text-gray-300 text-lg">Lagos, Nigeria</p>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="flex items-start">
-                <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded-full mr-4">
-                  <HiOutlineMailOpen className="text-blue-600 dark:text-blue-400 text-xl" />
+              <motion.div
+                whileHover={{ x: 5 }}
+                className="flex items-start group"
+              >
+                <div className="p-4 bg-gradient-to-br from-purple-500/20 to-purple-600/20 rounded-xl mr-6 group-hover:scale-110 transition-transform duration-300 border border-purple-500/30">
+                  <HiOutlineMailOpen className="text-purple-400 text-2xl" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-medium text-gray-800 dark:text-white">
+                  <h3 className="text-xl font-semibold text-white mb-2">
                     Email
                   </h3>
                   <a
                     href="mailto:fortunechinenyem@gmail.com"
-                    className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                    className="text-gray-300 text-lg hover:text-blue-400 transition-colors duration-300"
                   >
                     fortunechinenyem@gmail.com
                   </a>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="flex items-start">
-                <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded-full mr-4">
-                  <HiOutlinePhone className="text-blue-600 dark:text-blue-400 text-xl" />
+              <motion.div
+                whileHover={{ x: 5 }}
+                className="flex items-start group"
+              >
+                <div className="p-4 bg-gradient-to-br from-green-500/20 to-green-600/20 rounded-xl mr-6 group-hover:scale-110 transition-transform duration-300 border border-green-500/30">
+                  <HiOutlinePhone className="text-green-400 text-2xl" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-medium text-gray-800 dark:text-white">
+                  <h3 className="text-xl font-semibold text-white mb-2">
                     Phone
                   </h3>
                   <a
                     href="tel:+2348067585444"
-                    className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                    className="text-gray-300 text-lg hover:text-blue-400 transition-colors duration-300"
                   >
                     +234 806 758 5444
                   </a>
                 </div>
-              </div>
+              </motion.div>
             </div>
+
+            {/* Additional Info */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              className="mt-12 p-6 bg-slate-700/30 rounded-xl border border-slate-600"
+            >
+              <h4 className="text-lg font-semibold text-white mb-3 flex items-center">
+                <div className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
+                Response Time
+              </h4>
+              <p className="text-gray-300">
+                I typically respond to all messages within 24 hours. Looking
+                forward to connecting with you!
+              </p>
+            </motion.div>
           </motion.div>
 
           {/* Contact Form */}
           <motion.div
             variants={itemVariants}
-            className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl"
+            className="bg-slate-800/50 backdrop-blur-lg p-8 rounded-2xl shadow-2xl border border-slate-700 hover:border-purple-500/50 transition-all duration-500"
           >
-            <h2 className="text-2xl font-bold mb-8 text-gray-800 dark:text-white">
+            <h2 className="text-3xl font-bold mb-8 text-white">
               Send Me a Message
             </h2>
 
@@ -181,7 +226,7 @@ const ContactUs = () => {
               <motion.div variants={itemVariants}>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                  className="block text-sm font-medium text-gray-300 mb-3"
                 >
                   Your Name
                 </label>
@@ -193,14 +238,14 @@ const ContactUs = () => {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="John Doe"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-all"
+                  className="w-full px-4 py-4 rounded-xl border border-slate-600 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-slate-700/50 text-white placeholder-gray-400 transition-all duration-300 backdrop-blur-sm"
                 />
               </motion.div>
 
               <motion.div variants={itemVariants}>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                  className="block text-sm font-medium text-gray-300 mb-3"
                 >
                   Email Address
                 </label>
@@ -212,14 +257,14 @@ const ContactUs = () => {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="john@example.com"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-all"
+                  className="w-full px-4 py-4 rounded-xl border border-slate-600 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-slate-700/50 text-white placeholder-gray-400 transition-all duration-300 backdrop-blur-sm"
                 />
               </motion.div>
 
               <motion.div variants={itemVariants}>
                 <label
                   htmlFor="subject"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                  className="block text-sm font-medium text-gray-300 mb-3"
                 >
                   Subject
                 </label>
@@ -231,14 +276,14 @@ const ContactUs = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   placeholder="What's this about?"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-all"
+                  className="w-full px-4 py-4 rounded-xl border border-slate-600 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-slate-700/50 text-white placeholder-gray-400 transition-all duration-300 backdrop-blur-sm"
                 />
               </motion.div>
 
               <motion.div variants={itemVariants}>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                  className="block text-sm font-medium text-gray-300 mb-3"
                 >
                   Your Message
                 </label>
@@ -250,18 +295,22 @@ const ContactUs = () => {
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Hello Fortune, I'd like to talk about..."
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-all"
+                  className="w-full px-4 py-4 rounded-xl border border-slate-600 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-slate-700/50 text-white placeholder-gray-400 transition-all duration-300 resize-none backdrop-blur-sm"
                 ></textarea>
               </motion.div>
 
-              <motion.div variants={itemVariants} className="pt-2">
-                <button
+              <motion.div variants={itemVariants} className="pt-4">
+                <motion.button
                   type="submit"
                   disabled={submitting}
-                  className={`w-full flex items-center justify-center px-6 py-3 rounded-lg font-medium text-white transition-all ${
+                  whileHover={{ scale: submitting ? 1 : 1.02 }}
+                  whileTap={{ scale: submitting ? 1 : 0.98 }}
+                  className={`w-full flex items-center justify-center px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-2xl ${
                     submitting
-                      ? "bg-blue-400"
-                      : "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl  hover:from-blue-700 hover:to-blue-500 shadow-lg hover:shadow-xl"
+                      ? "bg-blue-400 cursor-not-allowed"
+                      : submitted
+                      ? "bg-gradient-to-r from-green-600 to-green-700"
+                      : "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
                   }`}
                 >
                   {submitting ? (
@@ -290,23 +339,23 @@ const ContactUs = () => {
                     </>
                   ) : submitted ? (
                     <>
-                      <FaCheckCircle className="mr-2" />
-                      Message Sent!
+                      <FaCheckCircle className="mr-3 text-xl" />
+                      Message Sent Successfully!
                     </>
                   ) : (
                     <>
-                      <FiSend className="mr-2" />
+                      <FiSend className="mr-3 text-xl" />
                       Send Message
                     </>
                   )}
-                </button>
+                </motion.button>
               </motion.div>
 
               {error && (
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-red-500 text-sm mt-2"
+                  className="p-4 bg-red-500/20 border border-red-500/30 rounded-xl text-red-400 text-sm"
                 >
                   {error}
                 </motion.div>
@@ -316,7 +365,7 @@ const ContactUs = () => {
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-green-500 text-sm mt-2"
+                  className="p-4 bg-green-500/20 border border-green-500/30 rounded-xl text-green-400 text-sm"
                 >
                   Your message has been sent successfully! I'll get back to you
                   soon.
@@ -326,13 +375,14 @@ const ContactUs = () => {
           </motion.div>
         </motion.div>
 
+        {/* Back to Home */}
         <motion.div variants={itemVariants} className="text-center mt-16">
           <Link
             href="/"
-            className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors"
+            className="inline-flex items-center px-6 py-3 bg-slate-800/50 backdrop-blur-lg text-gray-300 hover:text-white rounded-xl border border-slate-700 hover:border-blue-500/50 transition-all duration-300 group"
           >
             <svg
-              className="w-5 h-5 mr-2"
+              className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform duration-300"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

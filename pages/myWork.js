@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-
 import DefaultLayout from "@/layout/DefaultLayout";
 import { FiExternalLink, FiGithub } from "react-icons/fi";
 import { motion } from "framer-motion";
@@ -41,10 +40,14 @@ const MyWork = () => {
       tech: [
         {
           name: "Next.js",
-          icon: <SiNextdotjs className="text-black dark:text-white" />,
+          icon: <SiNextdotjs className="text-white" />,
+          color: "from-gray-800 to-black",
         },
-        ,
-        { name: "Tailwind", icon: <SiTailwindcss className="text-blue-400" /> },
+        {
+          name: "Tailwind",
+          icon: <SiTailwindcss className="text-cyan-400" />,
+          color: "from-cyan-500/20 to-cyan-600/20",
+        },
       ],
     },
     {
@@ -61,10 +64,19 @@ const MyWork = () => {
       tech: [
         {
           name: "Next.js",
-          icon: <SiNextdotjs className="text-black dark:text-white" />,
+          icon: <SiNextdotjs className="text-white" />,
+          color: "from-gray-800 to-black",
         },
-        { name: "MySQL", icon: <FaDatabase className="text-blue-600" /> },
-        { name: "Node.js", icon: <FaNodeJs className="text-green-500" /> },
+        {
+          name: "MySQL",
+          icon: <FaDatabase className="text-blue-500" />,
+          color: "from-blue-500/20 to-blue-600/20",
+        },
+        {
+          name: "Node.js",
+          icon: <FaNodeJs className="text-green-500" />,
+          color: "from-green-500/20 to-green-600/20",
+        },
       ],
     },
     {
@@ -79,7 +91,8 @@ const MyWork = () => {
       tech: [
         {
           name: "Next.js",
-          icon: <SiNextdotjs className="text-black dark:text-white" />,
+          icon: <SiNextdotjs className="text-white" />,
+          color: "from-gray-800 to-black",
         },
       ],
     },
@@ -94,12 +107,21 @@ const MyWork = () => {
       role: "Solo Developer",
       impact: "Achieved 10,000+ visits during Valentine season",
       tech: [
-        { name: "React", icon: <FaReact className="text-blue-400" /> },
+        {
+          name: "React",
+          icon: <FaReact className="text-cyan-400" />,
+          color: "from-cyan-500/20 to-cyan-600/20",
+        },
         {
           name: "Framer Motion",
-          icon: <span className="text-purple-500">FM</span>,
+          icon: <span className="text-purple-400 font-bold">FM</span>,
+          color: "from-purple-500/20 to-purple-600/20",
         },
-        { name: "Firebase", icon: <SiFirebase className="text-orange-500" /> },
+        {
+          name: "Firebase",
+          icon: <SiFirebase className="text-orange-400" />,
+          color: "from-orange-500/20 to-orange-600/20",
+        },
       ],
     },
     {
@@ -115,9 +137,14 @@ const MyWork = () => {
       tech: [
         {
           name: "Next.js",
-          icon: <SiNextdotjs className="text-black dark:text-white" />,
+          icon: <SiNextdotjs className="text-white" />,
+          color: "from-gray-800 to-black",
         },
-        { name: "Firebase", icon: <SiFirebase className="text-orange-500" /> },
+        {
+          name: "Firebase",
+          icon: <SiFirebase className="text-orange-400" />,
+          color: "from-orange-500/20 to-orange-600/20",
+        },
       ],
     },
     {
@@ -131,11 +158,20 @@ const MyWork = () => {
       role: "Frontend Developer",
       impact: "Increased daily active users by 40% through reward system",
       tech: [
-        { name: "React", icon: <FaReact className="text-blue-400" /> },
-        { name: "Firebase", icon: <SiFirebase className="text-orange-500" /> },
+        {
+          name: "React",
+          icon: <FaReact className="text-cyan-400" />,
+          color: "from-cyan-500/20 to-cyan-600/20",
+        },
+        {
+          name: "Firebase",
+          icon: <SiFirebase className="text-orange-400" />,
+          color: "from-orange-500/20 to-orange-600/20",
+        },
         {
           name: "TypeScript",
-          icon: <SiTypescript className="text-blue-600" />,
+          icon: <SiTypescript className="text-blue-500" />,
+          color: "from-blue-500/20 to-blue-600/20",
         },
       ],
     },
@@ -152,10 +188,19 @@ const MyWork = () => {
       tech: [
         {
           name: "Next.js",
-          icon: <SiNextdotjs className="text-black dark:text-white" />,
+          icon: <SiNextdotjs className="text-white" />,
+          color: "from-gray-800 to-black",
         },
-        { name: "Tailwind", icon: <SiTailwindcss className="text-blue-400" /> },
-        { name: "Firebase", icon: <SiFirebase className="text-orange-500" /> },
+        {
+          name: "Tailwind",
+          icon: <SiTailwindcss className="text-cyan-400" />,
+          color: "from-cyan-500/20 to-cyan-600/20",
+        },
+        {
+          name: "Firebase",
+          icon: <SiFirebase className="text-orange-400" />,
+          color: "from-orange-500/20 to-orange-600/20",
+        },
       ],
     },
     {
@@ -172,10 +217,19 @@ const MyWork = () => {
       tech: [
         {
           name: "Next.js",
-          icon: <SiNextdotjs className="text-black dark:text-white" />,
+          icon: <SiNextdotjs className="text-white" />,
+          color: "from-gray-800 to-black",
         },
-        { name: "Tailwind", icon: <SiTailwindcss className="text-blue-400" /> },
-        { name: "Firebase", icon: <SiFirebase className="text-orange-500" /> },
+        {
+          name: "Tailwind",
+          icon: <SiTailwindcss className="text-cyan-400" />,
+          color: "from-cyan-500/20 to-cyan-600/20",
+        },
+        {
+          name: "Firebase",
+          icon: <SiFirebase className="text-orange-400" />,
+          color: "from-orange-500/20 to-orange-600/20",
+        },
       ],
     },
   ];
@@ -196,153 +250,206 @@ const MyWork = () => {
     "React",
     "Node.js",
     "Firebase",
-    "MongoDB",
     "Tailwind CSS",
   ];
 
   return (
     <DefaultLayout>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
-          <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400 mb-6">
-            My Technical Projects
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Here's a showcase of my work highlighting technical challenges,
-            solutions, and measurable impact.
-          </p>
-        </motion.section>
-
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {filters.map((filter) => (
-            <button
-              key={filter}
-              onClick={() => setActiveFilter(filter)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                activeFilter === filter
-                  ? "bg-blue-600 text-white shadow-md"
-                  : "bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600"
-              }`}
-            >
-              {filter}
-            </button>
-          ))}
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+        {/* Background Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 left-10 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute top-40 right-20 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 left-1/4 w-64 h-64 bg-blue-600/5 rounded-full blur-3xl"></div>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          {/* Header Section */}
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-20"
+          >
             <motion.div
-              key={index}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -5 }}
-              className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 dark:border-gray-700"
+              transition={{ delay: 0.2 }}
+              className="inline-flex items-center px-6 py-3 rounded-full bg-blue-500/10 border border-blue-500/20 backdrop-blur-sm mb-8"
             >
-              <div className="relative h-48 w-full">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-6">
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-xl font-bold text-gray-800 dark:text-white">
-                    {project.title}
-                  </h3>
-                  <span className="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full">
-                    {project.role}
-                  </span>
-                </div>
+              <div className="w-2 h-2 bg-blue-500 rounded-full mr-2 animate-pulse"></div>
+              <span className="text-blue-400 text-sm font-medium">
+                Portfolio Showcase
+              </span>
+            </motion.div>
 
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  {project.description}
-                </p>
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white mb-6">
+              My <span className="text-blue-400">Projects</span>
+            </h1>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              A curated collection of my technical work showcasing innovative
+              solutions, measurable impact, and cutting-edge technologies.
+            </p>
+          </motion.section>
 
-                <div className="mb-4">
-                  <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">
-                    Technical Impact:
-                  </h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
-                    {project.impact}
-                  </p>
-                </div>
+          {/* Filter Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="flex flex-wrap justify-center gap-3 mb-16"
+          >
+            {filters.map((filter) => (
+              <motion.button
+                key={filter}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setActiveFilter(filter)}
+                className={`px-6 py-3 rounded-xl text-sm font-medium transition-all duration-300 backdrop-blur-sm border ${
+                  activeFilter === filter
+                    ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-2xl border-blue-500/50"
+                    : "bg-slate-800/50 text-gray-300 border-slate-700 hover:border-blue-500/30 hover:text-white"
+                }`}
+              >
+                {filter}
+              </motion.button>
+            ))}
+          </motion.div>
 
-                {/* Tech Stack */}
-                <div className="mb-4">
-                  <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">
-                    Tech Stack:
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech, i) => (
-                      <div
-                        key={i}
-                        className="flex items-center px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-xs"
-                      >
-                        {tech.icon}
-                        <span className="ml-1">{tech.name}</span>
-                      </div>
-                    ))}
+          {/* Projects Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredProjects.map((project, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -8, scale: 1.02 }}
+                className="group bg-slate-800/50 backdrop-blur-lg rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 border border-slate-700 hover:border-blue-500/50"
+              >
+                {/* Project Image */}
+                <div className="relative h-48 w-full overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent"></div>
+
+                  {/* Role Badge */}
+                  <div className="absolute top-4 right-4">
+                    <span className="px-3 py-1 bg-slate-900/80 backdrop-blur-sm text-blue-300 text-xs font-medium rounded-full border border-blue-500/30">
+                      {project.role}
+                    </span>
                   </div>
                 </div>
 
-                {/* Project Links */}
-                {/* Project Links */}
-                <div className="flex justify-between mt-4">
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl  hover:text-blue-800 dark:hover:text-blue-300 transition-colors"
-                  >
-                    <FiExternalLink className="mr-1" />
-                    Live Demo
-                  </a>
-                  {project.github && (
-                    <a
-                      href={project.github}
+                {/* Project Content */}
+                <div className="p-6">
+                  {/* Title and Description */}
+                  <div className="mb-4">
+                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-blue-300 transition-colors duration-300">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-300 leading-relaxed text-sm">
+                      {project.description}
+                    </p>
+                  </div>
+
+                  {/* Impact Section */}
+                  <div className="mb-4 p-4 bg-slate-700/30 rounded-xl border border-slate-600">
+                    <h4 className="text-sm font-semibold text-blue-300 mb-2 flex items-center">
+                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-2 animate-pulse"></div>
+                      Technical Impact:
+                    </h4>
+                    <p className="text-sm text-gray-300">{project.impact}</p>
+                  </div>
+
+                  {/* Tech Stack */}
+                  <div className="mb-6">
+                    <h4 className="text-sm font-semibold text-gray-300 mb-3">
+                      Tech Stack:
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tech.map((tech, i) => (
+                        <motion.div
+                          key={i}
+                          whileHover={{ scale: 1.05 }}
+                          className={`flex items-center px-3 py-2 rounded-lg bg-gradient-to-br ${tech.color} border border-slate-600 text-xs backdrop-blur-sm`}
+                        >
+                          <div className="mr-2">{tech.icon}</div>
+                          <span className="text-white font-medium">
+                            {tech.name}
+                          </span>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Project Links */}
+                  <div className="flex justify-between items-center">
+                    <motion.a
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors"
+                      className="flex items-center px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl group/link"
                     >
-                      <FiGithub className="mr-1" />
-                      Code
-                    </a>
-                  )}
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+                      <FiExternalLink className="mr-2" />
+                      Live Demo
+                    </motion.a>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          viewport={{ once: true }}
-          className="mt-20 text-center"
-        >
-          <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
-            Want to see more of my code?
-          </h3>
-          <a
-            href="https://github.com/Fortunechinenyem"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 dark:bg-gray-700 text-white rounded-lg hover:bg-gray-700 dark:hover:bg-gray-600 transition-colors shadow-lg"
+                    {project.github && project.github !== "#" && (
+                      <motion.a
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center px-4 py-2 bg-slate-700/50 hover:bg-slate-600/50 text-gray-300 hover:text-white rounded-lg font-medium transition-all duration-300 border border-slate-600 hover:border-slate-500 backdrop-blur-sm"
+                      >
+                        <FiGithub className="mr-2" />
+                        Code
+                      </motion.a>
+                    )}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* GitHub CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            viewport={{ once: true }}
+            className="mt-20 text-center"
           >
-            <FiGithub className="mr-2 text-xl" />
-            Visit My GitHub
-          </a>
-        </motion.div>
+            <div className="bg-slate-800/50 backdrop-blur-lg rounded-2xl p-8 border border-slate-700 shadow-2xl">
+              <h3 className="text-2xl font-bold text-white mb-4">
+                Want to explore more code?
+              </h3>
+              <p className="text-gray-300 mb-6 max-w-md mx-auto">
+                Check out my GitHub for more projects, contributions, and
+                open-source work.
+              </p>
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                href="https://github.com/Fortunechinenyem"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-300 shadow-2xl hover:shadow-3xl"
+              >
+                <FiGithub className="mr-3 text-xl" />
+                Visit My GitHub
+              </motion.a>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </DefaultLayout>
   );
