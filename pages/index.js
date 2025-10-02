@@ -462,11 +462,11 @@ export default function Home() {
                       "JavaScript/TypeScript",
                       "React/Next.js",
                       "Node.js/Express",
-                      "Python/Django",
-                      "MongoDB/PostgreSQL",
-                      "AWS/DevOps",
+                      "Firebase",
+                      "MongoDB",
+
                       "HTML/CSS/Tailwind",
-                      "REST APIs/GraphQL",
+                      "REST APIs",
                     ].map((skill, index) => (
                       <div key={index} className="flex items-center group">
                         <div className="w-2 h-2 bg-blue-500 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300 flex-shrink-0"></div>

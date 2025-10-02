@@ -30,39 +30,31 @@ const ContactUs = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitting(true);
     setError("");
 
-    try {
-      const response = await fetch("/api/sendEmail", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+    // Create form element to submit
+    const form = e.target;
 
-      if (response.ok) {
-        setFormData({
-          name: "",
-          email: "",
-          subject: "",
-          message: "",
-        });
-        setSubmitted(true);
-        setTimeout(() => setSubmitted(false), 5000);
-      } else {
-        const result = await response.json();
-        setError(result.message || "Failed to send message.");
-      }
-    } catch (error) {
-      setError("An unexpected error occurred. Please try again.");
-      console.error("Error occurred:", error);
-    } finally {
+    // Use setTimeout to show success state before actual form submission
+    setTimeout(() => {
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+      setSubmitted(true);
       setSubmitting(false);
-    }
+
+      // Reset submitted state after 5 seconds
+      setTimeout(() => setSubmitted(false), 5000);
+
+      // Submit the form
+      form.submit();
+    }, 1000);
   };
 
   const containerVariants = {
@@ -222,155 +214,162 @@ const ContactUs = () => {
               Send Me a Message
             </h2>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <motion.div variants={itemVariants}>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-gray-300 mb-3"
-                >
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="John Doe"
-                  className="w-full px-4 py-4 rounded-xl border border-slate-600 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-slate-700/50 text-white placeholder-gray-400 transition-all duration-300 backdrop-blur-sm"
-                />
-              </motion.div>
-
-              <motion.div variants={itemVariants}>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-300 mb-3"
-                >
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="john@example.com"
-                  className="w-full px-4 py-4 rounded-xl border border-slate-600 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-slate-700/50 text-white placeholder-gray-400 transition-all duration-300 backdrop-blur-sm"
-                />
-              </motion.div>
-
-              <motion.div variants={itemVariants}>
-                <label
-                  htmlFor="subject"
-                  className="block text-sm font-medium text-gray-300 mb-3"
-                >
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  required
-                  value={formData.subject}
-                  onChange={handleChange}
-                  placeholder="What's this about?"
-                  className="w-full px-4 py-4 rounded-xl border border-slate-600 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-slate-700/50 text-white placeholder-gray-400 transition-all duration-300 backdrop-blur-sm"
-                />
-              </motion.div>
-
-              <motion.div variants={itemVariants}>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-gray-300 mb-3"
-                >
-                  Your Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="5"
-                  required
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Hello Fortune, I'd like to talk about..."
-                  className="w-full px-4 py-4 rounded-xl border border-slate-600 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-slate-700/50 text-white placeholder-gray-400 transition-all duration-300 resize-none backdrop-blur-sm"
-                ></textarea>
-              </motion.div>
-
-              <motion.div variants={itemVariants} className="pt-4">
-                <motion.button
-                  type="submit"
-                  disabled={submitting}
-                  whileHover={{ scale: submitting ? 1 : 1.02 }}
-                  whileTap={{ scale: submitting ? 1 : 0.98 }}
-                  className={`w-full flex items-center justify-center px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-2xl ${
-                    submitting
-                      ? "bg-blue-400 cursor-not-allowed"
-                      : submitted
-                      ? "bg-gradient-to-r from-green-600 to-green-700"
-                      : "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
-                  }`}
-                >
-                  {submitting ? (
-                    <>
-                      <svg
-                        className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                      >
-                        <circle
-                          className="opacity-25"
-                          cx="12"
-                          cy="12"
-                          r="10"
-                          stroke="currentColor"
-                          strokeWidth="4"
-                        ></circle>
-                        <path
-                          className="opacity-75"
-                          fill="currentColor"
-                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                        ></path>
-                      </svg>
-                      Sending...
-                    </>
-                  ) : submitted ? (
-                    <>
-                      <FaCheckCircle className="mr-3 text-xl" />
-                      Message Sent Successfully!
-                    </>
-                  ) : (
-                    <>
-                      <FiSend className="mr-3 text-xl" />
-                      Send Message
-                    </>
-                  )}
-                </motion.button>
-              </motion.div>
-
-              {error && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="p-4 bg-red-500/20 border border-red-500/30 rounded-xl text-red-400 text-sm"
-                >
-                  {error}
+            <form
+              onSubmit={handleSubmit}
+              action="mailto:fortunechinenyem@gmail.com"
+              method="POST"
+              encType="text/plain"
+            >
+              <div className="space-y-6">
+                <motion.div variants={itemVariants}>
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-300 mb-3"
+                  >
+                    Your Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="John Doe"
+                    className="w-full px-4 py-4 rounded-xl border border-slate-600 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-slate-700/50 text-white placeholder-gray-400 transition-all duration-300 backdrop-blur-sm"
+                  />
                 </motion.div>
-              )}
 
-              {submitted && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="p-4 bg-green-500/20 border border-green-500/30 rounded-xl text-green-400 text-sm"
-                >
-                  Your message has been sent successfully! I'll get back to you
-                  soon.
+                <motion.div variants={itemVariants}>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-300 mb-3"
+                  >
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="john@example.com"
+                    className="w-full px-4 py-4 rounded-xl border border-slate-600 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-slate-700/50 text-white placeholder-gray-400 transition-all duration-300 backdrop-blur-sm"
+                  />
                 </motion.div>
-              )}
+
+                <motion.div variants={itemVariants}>
+                  <label
+                    htmlFor="subject"
+                    className="block text-sm font-medium text-gray-300 mb-3"
+                  >
+                    Subject
+                  </label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    required
+                    value={formData.subject}
+                    onChange={handleChange}
+                    placeholder="What's this about?"
+                    className="w-full px-4 py-4 rounded-xl border border-slate-600 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-slate-700/50 text-white placeholder-gray-400 transition-all duration-300 backdrop-blur-sm"
+                  />
+                </motion.div>
+
+                <motion.div variants={itemVariants}>
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-gray-300 mb-3"
+                  >
+                    Your Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    required
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Hello Fortune, I'd like to talk about..."
+                    className="w-full px-4 py-4 rounded-xl border border-slate-600 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-slate-700/50 text-white placeholder-gray-400 transition-all duration-300 resize-none backdrop-blur-sm"
+                  ></textarea>
+                </motion.div>
+
+                <motion.div variants={itemVariants} className="pt-4">
+                  <motion.button
+                    type="submit"
+                    disabled={submitting}
+                    whileHover={{ scale: submitting ? 1 : 1.02 }}
+                    whileTap={{ scale: submitting ? 1 : 0.98 }}
+                    className={`w-full flex items-center justify-center px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-2xl ${
+                      submitting
+                        ? "bg-blue-400 cursor-not-allowed"
+                        : submitted
+                        ? "bg-gradient-to-r from-green-600 to-green-700"
+                        : "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+                    }`}
+                  >
+                    {submitting ? (
+                      <>
+                        <svg
+                          className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                          ></circle>
+                          <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                          ></path>
+                        </svg>
+                        Sending...
+                      </>
+                    ) : submitted ? (
+                      <>
+                        <FaCheckCircle className="mr-3 text-xl" />
+                        Message Sent Successfully!
+                      </>
+                    ) : (
+                      <>
+                        <FiSend className="mr-3 text-xl" />
+                        Send Message
+                      </>
+                    )}
+                  </motion.button>
+                </motion.div>
+
+                {error && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="p-4 bg-red-500/20 border border-red-500/30 rounded-xl text-red-400 text-sm"
+                  >
+                    {error}
+                  </motion.div>
+                )}
+
+                {submitted && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="p-4 bg-green-500/20 border border-green-500/30 rounded-xl text-green-400 text-sm"
+                  >
+                    Your message has been sent successfully! I'll get back to
+                    you soon.
+                  </motion.div>
+                )}
+              </div>
             </form>
           </motion.div>
         </motion.div>

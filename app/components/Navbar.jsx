@@ -292,7 +292,7 @@ function Navbar() {
                     </button>
                   </Link>
                   <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
-                    <button className="w-full border-2 border-blue-400 text-blue-400 hover:bg-blue-400/20 hover:text-white font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base py-3 rounded-lg">
+                    <button className="w-full border-2 border-blue-400 text-blue-400 hover:bg-blue-400/20 hover:text-white font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base py-3 mt-4 rounded-lg">
                       Contact Me
                     </button>
                   </Link>
