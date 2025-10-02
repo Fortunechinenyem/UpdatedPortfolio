@@ -32,9 +32,7 @@ const About = () => {
 
   return (
     <DefaultLayout>
-      {/* Hero Section with Premium Background */}
       <div className="relative min-h-[80vh] w-full overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-        {/* Animated Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl"></div>
           <div className="absolute top-40 right-20 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl"></div>
@@ -110,83 +108,120 @@ const About = () => {
             whileInView="visible"
             variants={staggerContainer}
             viewport={{ once: true }}
-            className="grid lg:grid-cols-2 gap-12 items-center"
+            className="grid lg:grid-cols-5 gap-8 lg:gap-12 items-start"
           >
-            <motion.div variants={fadeInUp} className="space-y-6">
-              <h2 className="text-4xl sm:text-5xl font-black text-white">
-                Hello, I'm <span className="text-blue-400">Fortune</span>
-              </h2>
-              <p className="text-lg text-gray-300 leading-relaxed">
-                I'm a user-centric software developer passionate about
-                leveraging technology to create logical and innovative solutions
-                to complex problems. My technical skills span across JavaScript,
-                React.js, Next.js, and modern web development.
-              </p>
-              <p className="text-lg text-gray-300 leading-relaxed">
-                Beyond coding, I pride myself on soft skills like empathy and
-                emotional intelligence, which allow me to understand and meet
-                client needs effectively. I believe that great software isn't
-                just about clean code—it's about creating experiences that truly
-                serve people.
-              </p>
+            <motion.div variants={fadeInUp} className="lg:col-span-3 space-y-8">
+              <div className="space-y-6">
+                <h2 className="text-4xl sm:text-5xl font-black text-white">
+                  Hello, I'm <span className="text-blue-400">Fortune</span>
+                </h2>
+                <p className="text-lg text-gray-300 leading-relaxed">
+                  I'm a user-centric software developer passionate about
+                  leveraging technology to create logical and innovative
+                  solutions to complex problems. My technical skills span across
+                  JavaScript, React.js, Next.js, and modern web development.
+                </p>
+                <p className="text-lg text-gray-300 leading-relaxed">
+                  Beyond coding, I pride myself on soft skills like empathy and
+                  emotional intelligence, which allow me to understand and meet
+                  client needs effectively. I believe that great software isn't
+                  just about clean code,it's about creating experiences that
+                  truly serve people.
+                </p>
+              </div>
+
+              <div className="bg-slate-800/50 backdrop-blur-lg rounded-2xl p-6 border border-slate-700 shadow-2xl">
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    {
+                      icon: <FaCode className="text-2xl" />,
+                      title: "Projects",
+                      value: "10+",
+                      color: "text-blue-400",
+                    },
+                    {
+                      icon: <FiAward className="text-2xl" />,
+                      title: "Experience",
+                      value: "3+ Years",
+                      color: "text-purple-400",
+                    },
+                    {
+                      icon: <FiUsers className="text-2xl" />,
+                      title: "Clients",
+                      value: "5+",
+                      color: "text-green-400",
+                    },
+                    {
+                      icon: <FaHeart className="text-2xl" />,
+                      title: "Passion",
+                      value: "100%",
+                      color: "text-red-400",
+                    },
+                  ].map((item, index) => (
+                    <motion.div
+                      key={index}
+                      whileHover={{ y: -3, scale: 1.03 }}
+                      className="bg-slate-700/30 p-4 rounded-xl text-center border border-slate-600 hover:border-blue-500/50 transition-all duration-300 group"
+                    >
+                      <div
+                        className={`${item.color} mb-2 group-hover:scale-110 transition-transform duration-300`}
+                      >
+                        {item.icon}
+                      </div>
+                      <h3 className="font-bold text-xl text-white mb-1">
+                        {item.value}
+                      </h3>
+                      <p className="text-gray-400 text-xs font-medium">
+                        {item.title}
+                      </p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="lg:hidden mt-8">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                  <Image
+                    src={AboutHero}
+                    alt="Fortune Aribido - Professional Software Developer"
+                    width={400}
+                    height={400}
+                    className="w-full h-auto object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-transparent to-slate-900/20"></div>
+                </div>
+              </div>
             </motion.div>
 
-            <motion.div
-              variants={fadeInUp}
-              className="bg-slate-800/50 backdrop-blur-lg rounded-2xl p-8 border border-slate-700 shadow-2xl"
-            >
-              <div className="grid grid-cols-2 gap-6">
-                {[
-                  {
-                    icon: <FaCode className="text-3xl" />,
-                    title: "Projects",
-                    value: "10+",
-                    color: "text-blue-400",
-                  },
-                  {
-                    icon: <FiAward className="text-3xl" />,
-                    title: "Experience",
-                    value: "3+ Years",
-                    color: "text-purple-400",
-                  },
-                  {
-                    icon: <FiUsers className="text-3xl" />,
-                    title: "Clients",
-                    value: "5+",
-                    color: "text-green-400",
-                  },
-                  {
-                    icon: <FaHeart className="text-3xl" />,
-                    title: "Passion",
-                    value: "100%",
-                    color: "text-red-400",
-                  },
-                ].map((item, index) => (
-                  <motion.div
-                    key={index}
-                    whileHover={{ y: -5, scale: 1.05 }}
-                    className="bg-slate-700/30 p-6 rounded-xl text-center border border-slate-600 hover:border-blue-500/50 transition-all duration-300 group"
-                  >
-                    <div
-                      className={`${item.color} mb-3 group-hover:scale-110 transition-transform duration-300`}
-                    >
-                      {item.icon}
+            <motion.div variants={fadeInUp} className="lg:col-span-2">
+              <div className="hidden lg:block">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                  <Image
+                    src={AboutHero}
+                    alt="Fortune Aribido - Professional Software Developer"
+                    width={400}
+                    height={400}
+                    className="w-full h-auto object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-transparent to-slate-900/20"></div>
+
+                  <div className="absolute bottom-4 left-4 bg-slate-800/90 backdrop-blur-lg rounded-lg shadow-lg p-4 border border-blue-500/30">
+                    <div className="text-center">
+                      <p className="text-sm font-semibold text-white">
+                        Fortune Aribido
+                      </p>
+                      <p className="text-xs text-blue-400">
+                        Software Developer
+                      </p>
                     </div>
-                    <h3 className="font-bold text-2xl text-white mb-1">
-                      {item.value}
-                    </h3>
-                    <p className="text-gray-400 text-sm font-medium">
-                      {item.title}
-                    </p>
-                  </motion.div>
-                ))}
+                  </div>
+                </div>
               </div>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* Journey Timeline */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/30 backdrop-blur-sm overflow-hidden">
         {/* Background Elements */}
         <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl"></div>

@@ -267,21 +267,38 @@ export default function Home() {
                   className="flex justify-center lg:justify-end"
                 >
                   <div className="relative">
-                    <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-3xl overflow-hidden shadow-2xl group">
+                    {/* Main Image Container */}
+                    <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
                       <Image
                         src={Logo}
                         alt="Professional portrait of Fortune - Software Developer"
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        width={600}
+                        height={600}
+                        className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
                         priority
-                        sizes="(max-width: 768px) 320px, 384px"
                       />
                       <div className="absolute inset-0 bg-gradient-to-br from-transparent to-slate-900/20"></div>
                     </div>
 
+                    {/* Profile Card - Smaller and more compact */}
+                    <div className="absolute -bottom-4 -right-4 bg-slate-800/90 backdrop-blur-lg rounded-lg shadow-xl p-4 max-w-[180px] border border-blue-500/30">
+                      <div className="text-center">
+                        <h3 className="text-sm font-semibold text-white mb-1">
+                          Fortune Aribido
+                        </h3>
+                        <p className="text-blue-400 text-xs font-medium mb-2">
+                          Software Developer
+                        </p>
+                        <div className="w-8 h-px bg-blue-400/50 mx-auto mb-2"></div>
+                        <p className="text-xs text-gray-300 leading-tight">
+                          "Building elegant digital solutions"
+                        </p>
+                      </div>
+                    </div>
+
                     {/* Floating elements */}
-                    <div className="absolute -top-4 -right-4 w-8 h-8 bg-blue-500 rounded-full blur-xl opacity-50 animate-pulse"></div>
-                    <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-purple-500 rounded-full blur-xl opacity-30 animate-pulse delay-1000"></div>
+                    <div className="absolute -top-6 -left-6 w-24 h-24 bg-blue-500/10 rounded-full opacity-40"></div>
+                    <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-purple-500/10 rounded-full opacity-30"></div>
                   </div>
                 </motion.div>
               </div>
@@ -397,33 +414,33 @@ export default function Home() {
           </section>
 
           {/* Skills Section - Enhanced */}
-          <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/30 backdrop-blur-sm">
+          <section className="relative py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/30 backdrop-blur-sm">
             <div className="max-w-7xl mx-auto">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="text-center mb-16"
+                className="text-center mb-12 sm:mb-16"
               >
-                <h2 className="text-4xl sm:text-5xl font-black text-white mb-6">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-4 sm:mb-6">
                   My <span className="text-blue-400">Skills</span>
                 </h2>
-                <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+                <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto px-4">
                   A comprehensive toolkit for building modern, scalable web
                   applications
                 </p>
               </motion.div>
 
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
                 {/* Technical Skills */}
                 <motion.div
                   initial={{ opacity: 0, x: -30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8 }}
-                  className="bg-slate-900/60 backdrop-blur-lg rounded-2xl p-8 border border-slate-700 hover:border-blue-500/50 transition-all duration-300 group"
+                  className="bg-slate-900/60 backdrop-blur-lg rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-slate-700 hover:border-blue-500/50 transition-all duration-300 group"
                 >
-                  <h3 className="text-2xl font-bold text-white mb-8 flex items-center">
-                    <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center mr-3">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8 flex items-center">
+                    <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
                       <svg
                         className="w-4 h-4 text-blue-400"
                         fill="none"
@@ -440,7 +457,7 @@ export default function Home() {
                     </div>
                     Technical Stack
                   </h3>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 xs:grid-cols-2 gap-3 sm:gap-4">
                     {[
                       "JavaScript/TypeScript",
                       "React/Next.js",
@@ -452,8 +469,8 @@ export default function Home() {
                       "REST APIs/GraphQL",
                     ].map((skill, index) => (
                       <div key={index} className="flex items-center group">
-                        <div className="w-2 h-2 bg-blue-500 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300"></div>
-                        <span className="text-gray-300 group-hover:text-white transition-colors duration-300">
+                        <div className="w-2 h-2 bg-blue-500 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300 flex-shrink-0"></div>
+                        <span className="text-gray-300 group-hover:text-white transition-colors duration-300 text-sm sm:text-base break-words">
                           {skill}
                         </span>
                       </div>
@@ -466,10 +483,10 @@ export default function Home() {
                   initial={{ opacity: 0, x: 30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8 }}
-                  className="bg-slate-900/60 backdrop-blur-lg rounded-2xl p-8 border border-slate-700 hover:border-purple-500/50 transition-all duration-300 group"
+                  className="bg-slate-900/60 backdrop-blur-lg rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-slate-700 hover:border-purple-500/50 transition-all duration-300 group"
                 >
-                  <h3 className="text-2xl font-bold text-white mb-8 flex items-center">
-                    <div className="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center mr-3">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8 flex items-center">
+                    <div className="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
                       <svg
                         className="w-4 h-4 text-purple-400"
                         fill="none"
@@ -486,7 +503,7 @@ export default function Home() {
                     </div>
                     Professional Skills
                   </h3>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 xs:grid-cols-2 gap-3 sm:gap-4">
                     {[
                       "Problem Solving",
                       "Communication",
@@ -498,8 +515,8 @@ export default function Home() {
                       "Continuous Learning",
                     ].map((skill, index) => (
                       <div key={index} className="flex items-center group">
-                        <div className="w-2 h-2 bg-purple-500 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300"></div>
-                        <span className="text-gray-300 group-hover:text-white transition-colors duration-300">
+                        <div className="w-2 h-2 bg-purple-500 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300 flex-shrink-0"></div>
+                        <span className="text-gray-300 group-hover:text-white transition-colors duration-300 text-sm sm:text-base break-words">
                           {skill}
                         </span>
                       </div>
@@ -507,6 +524,20 @@ export default function Home() {
                   </div>
                 </motion.div>
               </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="mt-8 sm:mt-12 lg:hidden"
+              >
+                <div className="bg-slate-800/40 backdrop-blur-sm rounded-xl p-6 border border-slate-700 text-center">
+                  <p className="text-gray-300 text-sm sm:text-base">
+                    Continuously learning and adapting to new technologies and
+                    methodologies
+                  </p>
+                </div>
+              </motion.div>
             </div>
           </section>
 
