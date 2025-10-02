@@ -281,7 +281,7 @@ export default function Home() {
                     </div>
 
                     {/* Profile Card - Smaller and more compact */}
-                    <div className="absolute -bottom-4 -right-4 bg-slate-800/90 backdrop-blur-lg rounded-lg shadow-xl p-4 max-w-[180px] border border-blue-500/30">
+                    <div className="absolute -bottom-4 -right-4 bg-slate-800/90 backdrop-blur-lg rounded-lg shadow-xl p-4 max-w-[180px] border border-blue-500/30 sm:hidden">
                       <div className="text-center">
                         <h3 className="text-sm font-semibold text-white mb-1">
                           Fortune Aribido
