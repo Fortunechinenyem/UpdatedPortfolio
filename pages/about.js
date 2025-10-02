@@ -74,28 +74,6 @@ const About = () => {
               Combining technical expertise with human-centered design to create
               meaningful digital experiences that make a difference
             </motion.p>
-
-            {/* Stats */}
-            <motion.div
-              variants={fadeInUp}
-              className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto"
-            >
-              {[
-                { number: "3+", label: "Years Experience" },
-                { number: "10+", label: "Projects Completed" },
-                { number: "8+", label: "Technologies" },
-                { number: "100%", label: "Client Satisfaction" },
-              ].map((stat, index) => (
-                <div key={index} className="text-center group">
-                  <div className="text-2xl lg:text-3xl font-bold text-blue-400 mb-2 group-hover:scale-110 transition-transform duration-300">
-                    {stat.number}
-                  </div>
-                  <div className="text-sm text-gray-400 font-medium">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </motion.div>
           </motion.div>
         </div>
       </div>
