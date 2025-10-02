@@ -29,27 +29,30 @@ const ContactUs = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
 
-    // Build professional email structure
-    const subject = `Enquiry: ${formData.subject}`;
-    const body = `New Contact Form Submission\n\nName: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}\n\n---\nSent from my portfolio website`;
+    try {
+      const res = await fetch("/api/sendEmail", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-    // Open user's default email app with prefilled email
-    const mailtoLink = `mailto:fortunechinenyem@gmail.com?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
-
-    window.location.href = mailtoLink;
-
-    // Reset states
-    setFormData({ name: "", email: "", subject: "", message: "" });
-    setSubmitting(false);
-    setSubmitted(true);
-
-    setTimeout(() => setSubmitted(false), 5000);
+      if (res.ok) {
+        setFormData({ name: "", email: "", subject: "", message: "" });
+        setSubmitted(true);
+      } else {
+        alert("Oops! Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      console.error("Error:", err);
+      alert("Error sending message. Try again later.");
+    } finally {
+      setSubmitting(false);
+      setTimeout(() => setSubmitted(false), 5000);
+    }
   };
 
   const containerVariants = {
