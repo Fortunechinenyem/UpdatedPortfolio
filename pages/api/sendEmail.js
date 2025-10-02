@@ -1,4 +1,3 @@
-// pages/api/sendEmail.js
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -12,8 +11,8 @@ export default async function handler(req, res) {
     const { name, email, subject, message } = req.body;
 
     await resend.emails.send({
-      from: "portfolio@fortunesportfolio.vercel.app", // use your verified domain/email from Resend
-      to: "fortunechinenyem@gmail.com", // your inbox
+      from: "fortunechinenyem@gmail.com",
+      to: "fortunechinenyem@gmail.com",
       subject: `Portfolio Enquiry: ${subject}`,
       text: `
 New Contact Form Submission
