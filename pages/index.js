@@ -279,8 +279,8 @@ export default function Home() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-br from-transparent to-slate-900/20"></div>
                     </div>
-
-                    {/* Profile Card - Smaller and more compact */}
+                    {/* 
+                    Profile Card - Smaller and more compact
                     <div className="absolute -bottom-4 -right-4 bg-slate-800/90 backdrop-blur-lg rounded-lg shadow-xl p-4 max-w-[180px] border border-blue-500/30 sm:hidden">
                       <div className="text-center">
                         <h3 className="text-sm font-semibold text-white mb-1">
@@ -294,7 +294,7 @@ export default function Home() {
                           "Building elegant digital solutions"
                         </p>
                       </div>
-                    </div>
+                    </div> */}
 
                     {/* Floating elements */}
                     <div className="absolute -top-6 -left-6 w-24 h-24 bg-blue-500/10 rounded-full opacity-40"></div>
