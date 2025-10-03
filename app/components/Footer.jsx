@@ -247,7 +247,7 @@ function Footer() {
                 passion and precision.
               </p>
               <p className="text-blue-200/40 text-xs mt-1">
-                Built with Next.js & Tailwind CSS • 08067585444
+                Built by IyaInTech
               </p>
             </div>
           </div>
