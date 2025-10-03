@@ -512,7 +512,6 @@ export default function Home() {
                       "Agile Methodology",
                       "Client Relations",
                       "Technical Leadership",
-                      "Continuous Learning",
                     ].map((skill, index) => (
                       <div key={index} className="flex items-center group">
                         <div className="w-2 h-2 bg-purple-500 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300 flex-shrink-0"></div>

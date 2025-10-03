@@ -157,11 +157,10 @@ function Footer() {
                 "React & Next.js",
                 "TypeScript",
                 "Node.js & Express",
-                "MongoDB & PostgreSQL",
+                "MongoDB",
+                "Firebase",
                 "Tailwind CSS",
-                "Python & Django",
-                "AWS & DevOps",
-                "UI/UX Design",
+                "REST APIs",
               ].map((tech, index) => (
                 <div
                   key={index}

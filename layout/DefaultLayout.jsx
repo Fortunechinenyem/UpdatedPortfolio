@@ -1,6 +1,6 @@
 import Footer from "@/app/components/Footer";
 import Navbar from "@/app/components/Navbar";
-import ThemeToggle from "@/app/components/ThemeToggle"; // Import the ThemeToggle component
+
 import React from "react";
 
 const DefaultLayout = ({ children }) => {
@@ -9,9 +9,7 @@ const DefaultLayout = ({ children }) => {
       <Navbar />
       <div className="main-content">
         <div className="container mx-auto p-4">
-          <div className="flex justify-end mb-4">
-            <ThemeToggle />
-          </div>
+          <div className="flex justify-end mb-4"></div>
           <main>{children}</main>
         </div>
       </div>
