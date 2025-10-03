@@ -34,21 +34,12 @@ const ContactUs = () => {
     setSubmitting(true);
 
     try {
-      // Send main email to you
       const res = await fetch("/api/sendEmail", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(formData),
-      });
-
-      // Send auto-reply to the user
-      await fetch("/api/sendAutoReply", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-        }),
       });
 
       if (res.ok) {
