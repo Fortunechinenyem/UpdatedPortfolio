@@ -34,10 +34,21 @@ const ContactUs = () => {
     setSubmitting(true);
 
     try {
+      // Send main email to you
       const res = await fetch("/api/sendEmail", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
+      });
+
+      // Send auto-reply to the user
+      await fetch("/api/sendAutoReply", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+        }),
       });
 
       if (res.ok) {
@@ -98,11 +109,11 @@ const ContactUs = () => {
           </motion.div>
 
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white mb-6">
-            Let's <span className="text-blue-400">Connect</span>
+            Let&apos;s <span className="text-blue-400">Connect</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            Got a proposal or just want to say hello? I'd love to hear from you
-            and discuss how we can work together!
+            Got a proposal or just want to say hello? I&apos;d love to hear from
+            you and discuss how we can work together!
           </p>
         </motion.div>
 
@@ -275,7 +286,7 @@ const ContactUs = () => {
                       : submitted
                       ? "bg-gradient-to-r from-green-600 to-green-700"
                       : "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
-                  }`}
+                  } text-white`}
                 >
                   {submitting ? (
                     <>
@@ -303,12 +314,12 @@ const ContactUs = () => {
                     </>
                   ) : submitted ? (
                     <>
-                      <FaCheckCircle className="mr-3 text-xl" />
-                      Message Ready in Email App!
+                      <FaCheckCircle className="mr-2 text-white" />
+                      Message Sent!
                     </>
                   ) : (
                     <>
-                      <FiSend className="mr-3 text-xl" />
+                      <FiSend className="mr-2 text-white" />
                       Send Message
                     </>
                   )}
@@ -319,15 +330,18 @@ const ContactUs = () => {
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="p-4 bg-green-500/20 border border-green-500/30 rounded-xl text-green-400 text-sm"
+                  exit={{ opacity: 0 }}
+                  className="mt-6 p-4 bg-green-500/20 border border-green-500/30 rounded-xl text-green-400 text-sm flex items-center"
                 >
-                  Your email draft has been opened in your email app. Just press
-                  <strong> Send</strong>.
+                  <FaCheckCircle className="mr-2 text-green-400" />
+                  Your message has been delivered successfully. I&apos;ll get
+                  back to you shortly!
                 </motion.div>
               )}
             </form>
           </motion.div>
         </motion.div>
+
         {/* Back to Home */}
         <motion.div variants={itemVariants} className="text-center mt-16">
           <Link
