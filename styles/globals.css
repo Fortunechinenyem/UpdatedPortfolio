@@ -21,7 +21,7 @@ body {
 /* Default dark theme */
 body {
   color: #f8fafc;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  background: #0f172a;
   min-height: 100vh;
 }
 
@@ -40,12 +40,12 @@ a {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #3b82f6, #1e40af);
+  background: #3b82f6;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #1e40af, #1e3a8a);
+  background: #1e40af;
 }
 
 /* Hide scrollbar utility */
@@ -71,79 +71,61 @@ a {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Gradient text animations */
-.animate-gradient-text {
-  background: linear-gradient(135deg, #3b82f6, #a855f7, #f59e0b, #3b82f6);
-  background-size: 300% 300%;
-  animation: gradient-text 4s ease infinite;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* Simple blue text animation */
+.animate-blue-text {
+  color: #3b82f6;
+  animation: pulse-blue 2s ease-in-out infinite;
 }
 
-@keyframes gradient-text {
-  0% {
-    background-position: 0% 50%;
+@keyframes pulse-blue {
+  0%,
+  100% {
+    opacity: 1;
   }
   50% {
-    background-position: 100% 50%;
+    opacity: 0.7;
   }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-/* Text shimmer effect */
-.text-shimmer {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(59, 130, 246, 0.4),
-    transparent
-  );
-  background-size: 200% 100%;
-  animation: text-shimmer 2.5s ease-in-out infinite;
 }
 
 /* Button styles for dark theme */
 .button-primary {
-  @apply bg-gradient-to-r from-dark-accent-blue to-dark-accent-purple-light text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl;
+  @apply bg-blue-500 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:bg-blue-600 hover:shadow-lg;
 }
 
 .button-secondary {
-  @apply border border-dark-accent-blue text-dark-accent-blue font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:bg-dark-accent-blue hover:text-white;
+  @apply border border-blue-500 text-blue-500 font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:bg-blue-500 hover:text-white;
 }
 
 /* Portfolio card styles */
 .portfolio-card {
-  @apply bg-dark-bg-secondary border border-dark-bg-tertiary rounded-xl p-6 transition-all duration-300 hover:border-dark-accent-blue hover:shadow-2xl hover:transform hover:-translate-y-2;
+  @apply bg-slate-800 border border-slate-700 rounded-xl p-6 transition-all duration-300 hover:border-blue-500 hover:shadow-lg;
 }
 
 /* Input styles for dark theme */
 input,
 select,
 textarea {
-  @apply bg-dark-bg-secondary border border-dark-bg-tertiary text-dark-text-primary rounded-lg px-4 py-3 transition-all duration-200;
+  @apply bg-slate-800 border border-slate-700 text-white rounded-lg px-4 py-3 transition-all duration-200;
 }
 
 input:focus,
 select:focus,
 textarea:focus {
-  @apply outline-none border-dark-accent-blue ring-2 ring-dark-accent-blue ring-opacity-20;
+  @apply outline-none border-blue-500 ring-2 ring-blue-500 ring-opacity-20;
 }
 
 input::placeholder {
-  @apply text-dark-text-tertiary;
+  @apply text-slate-400;
 }
 
 /* Navigation styles */
 .nav-link {
-  @apply relative text-dark-text-secondary hover:text-white transition-colors duration-300;
+  @apply relative text-slate-400 hover:text-white transition-colors duration-300;
 }
 
 .nav-link::after {
   content: "";
-  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-dark-accent-blue to-dark-accent-purple-light transition-all duration-300;
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300;
 }
 
 .nav-link:hover::after {
@@ -162,7 +144,7 @@ input::placeholder {
 /* Typewriter effect */
 .typewriter {
   overflow: hidden;
-  border-right: 2px solid #f59e0b;
+  border-right: 2px solid #3b82f6;
   white-space: nowrap;
   animation: typewriter 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
 }
@@ -182,7 +164,7 @@ input::placeholder {
     border-color: transparent;
   }
   50% {
-    border-color: #f59e0b;
+    border-color: #3b82f6;
   }
 }
 

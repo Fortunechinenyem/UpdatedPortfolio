@@ -48,7 +48,7 @@ function Footer() {
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-600 to-blue-500 blur-xl opacity-30 -z-10 group-hover:opacity-50 transition-opacity duration-300"></div>
               </div>
               <div>
-                <span className="text-2xl font-black bg-gradient-to-r from-white to-blue-400 bg-clip-text text-transparent">
+                <span className="text-2xl font-black bg-white bg-clip-text text-transparent">
                   Fortune
                 </span>
                 <div className="text-xs text-blue-300 font-medium tracking-wider mt-1">

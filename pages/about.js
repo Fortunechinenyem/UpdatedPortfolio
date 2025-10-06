@@ -62,7 +62,7 @@ const About = () => {
               className="text-5xl sm:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight"
             >
               The Mind{" "}
-              <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+              <span className="bg-blue-500 bg-clip-text text-transparent">
                 Behind
               </span>{" "}
               The Code
@@ -144,9 +144,7 @@ const About = () => {
                     >
                       <div
                         className={`${item.color} mb-2 group-hover:scale-110 transition-transform duration-300`}
-                      >
-                        {item.icon}
-                      </div>
+                      ></div>
                       <h3 className="font-bold text-xl text-white mb-1">
                         {item.value}
                       </h3>
@@ -318,10 +316,10 @@ const About = () => {
                         : "w-16 h-16 text-base" // Standard size for other years
                     } ${
                       item.highlight === "break"
-                        ? "bg-gradient-to-r from-yellow-600 to-orange-600"
+                        ? "bg-yellow-500/60"
                         : item.highlight === "current"
-                        ? "bg-gradient-to-r from-green-600 to-emerald-600 animate-pulse"
-                        : "bg-gradient-to-r from-blue-600 to-purple-600"
+                        ? "bg-emerald-600 animate-pulse"
+                        : "bg-blue-600 "
                     }`}
                   >
                     {item.year}
@@ -452,7 +450,7 @@ const About = () => {
               </p>
               <p className="text-lg text-gray-300 leading-relaxed">
                 I believe in maintaining a healthy work-life balance (This one
-                is a reach right 😆, but I try ✨) and that the best ideas often
+                is a reach right 😆, but I try) and that the best ideas often
                 come when we step away from the keyboard and engage with the
                 world.
               </p>
@@ -500,9 +498,7 @@ const About = () => {
                       ease: "easeInOut",
                     }}
                     className="text-white mb-3"
-                  >
-                    {item.icon}
-                  </motion.div>
+                  ></motion.div>
                   <h3 className="font-bold text-white mb-1">{item.title}</h3>
                   <p className="text-gray-300 text-sm">{item.description}</p>
                 </motion.div>

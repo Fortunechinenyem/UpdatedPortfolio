@@ -306,7 +306,7 @@ const MyWork = () => {
                 onClick={() => setActiveFilter(filter)}
                 className={`px-6 py-3 rounded-xl text-sm font-medium transition-all duration-300 backdrop-blur-sm border ${
                   activeFilter === filter
-                    ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-2xl border-blue-500/50"
+                    ? "bg-blue-500  text-white shadow-2xl border-blue-500/50"
                     : "bg-slate-800/50 text-gray-300 border-slate-700 hover:border-blue-500/30 hover:text-white"
                 }`}
               >
@@ -441,7 +441,7 @@ const MyWork = () => {
                 href="https://github.com/Fortunechinenyem"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-300 shadow-2xl hover:shadow-3xl"
+                className="inline-flex items-center px-8 py-4bg-blue-500hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-300 shadow-2xl hover:shadow-3xl"
               >
                 <FiGithub className="mr-3 text-xl" />
                 Visit My GitHub

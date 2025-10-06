@@ -275,8 +275,8 @@ const ContactUs = () => {
                     submitting
                       ? "bg-blue-400 cursor-not-allowed"
                       : submitted
-                      ? "bg-gradient-to-r from-green-600 to-green-700"
-                      : "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+                      ? "bg-green-600 "
+                      : "bg-blue-500  hover:from-blue-700 hover:to-purple-700"
                   } text-white`}
                 >
                   {submitting ? (

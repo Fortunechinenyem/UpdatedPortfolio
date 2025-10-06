@@ -7,7 +7,6 @@ const PersonalityShowcase = () => {
 
   const funFacts = [
     {
-      emoji: "🎸",
       title: "Music Lover",
       fact: "I play acoustic guitar and find it helps me think through complex coding problems.",
       dance: {
@@ -20,7 +19,6 @@ const PersonalityShowcase = () => {
       hoverBorderColor: "hover:border-blue-400/50",
     },
     {
-      emoji: "🌍",
       title: "Travel Enthusiast",
       fact: "I believe traveling expands the mind just like learning new programming languages.",
       dance: {
@@ -33,7 +31,6 @@ const PersonalityShowcase = () => {
       hoverBorderColor: "hover:border-purple-400/50",
     },
     {
-      emoji: "💃",
       title: "Dancing",
       fact: "I love to dance, there's something it just does especially when the bugs do their thing.",
       dance: {
@@ -45,7 +42,6 @@ const PersonalityShowcase = () => {
       hoverBorderColor: "hover:border-green-400/50",
     },
     {
-      emoji: "📚",
       title: "Continuous Learner",
       fact: "I dedicate time each week to learn new technologies and development methodologies.",
       dance: {

@@ -190,7 +190,7 @@ export default function Home() {
 
                     <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-tight">
                       Hello, I'm{" "}
-                      <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+                      <span className="bg-blue-500  bg-clip-text text-transparent">
                         Fortune
                       </span>
                     </h1>
@@ -214,7 +214,7 @@ export default function Home() {
                   >
                     <Link
                       href="/contact"
-                      className="group relative bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 transform hover:-translate-y-1 shadow-2xl hover:shadow-3xl flex items-center justify-center"
+                      className="group relative bg-blue-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 transform hover:-translate-y-1 shadow-2xl hover:shadow-3xl flex items-center justify-center"
                     >
                       <span className="relative z-10 flex items-center">
                         Get In Touch
@@ -402,7 +402,7 @@ export default function Home() {
               >
                 <Link
                   href="/about"
-                  className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-300 transform hover:-translate-y-1 shadow-2xl hover:shadow-3xl group"
+                  className="inline-flex items-center px-8 py-4 bg-blue-500 hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-300 transform hover:-translate-y-1 shadow-2xl hover:shadow-3xl group"
                 >
                   Learn More About Me
                   <span className="ml-2 group-hover:translate-x-1 transition-transform duration-300">
@@ -566,7 +566,7 @@ export default function Home() {
               >
                 <Link
                   href="/myWork"
-                  className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-300 transform hover:-translate-y-1 shadow-2xl hover:shadow-3xl group"
+                  className="inline-flex items-center px-8 py-4 bg-blue-500 hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-300 transform hover:-translate-y-1 shadow-2xl hover:shadow-3xl group"
                 >
                   View All Projects
                   <span className="ml-2 group-hover:translate-x-1 transition-transform duration-300">
@@ -598,7 +598,7 @@ export default function Home() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link
                     href="/contact"
-                    className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 transform hover:-translate-y-1 shadow-2xl hover:shadow-3xl"
+                    className="bg-blue-500 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 transform hover:-translate-y-1 shadow-2xl hover:shadow-3xl"
                   >
                     Start a Project
                   </Link>

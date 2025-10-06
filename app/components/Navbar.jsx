@@ -131,7 +131,7 @@ function Navbar() {
               download="Fortune_CV.pdf"
               className="hidden xs:block sm:hidden"
             >
-              <button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold shadow-lg text-xs px-3 py-2 rounded-lg">
+              <button className="bg-blue-600  hover:from-blue-700 hover:to-blue-800 text-white font-semibold shadow-lg text-xs px-3 py-2 rounded-lg">
                 Resume
               </button>
             </Link>
@@ -142,7 +142,7 @@ function Navbar() {
               download="Fortune_CV.pdf"
               className="hidden sm:block"
             >
-              <button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold shadow-lg px-4 py-2 rounded-lg">
+              <button className="bg-blue-600 hover:from-blue-700 hover:to-blue-800 text-white font-semibold shadow-lg px-4 py-2 rounded-lg">
                 Resume
               </button>
             </Link>
@@ -189,9 +189,6 @@ function Navbar() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 <div className="flex items-center space-x-3 sm:space-x-4">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg flex-shrink-0">
-                    <div className="w-1.5 h-3 sm:w-2 sm:h-4 bg-white rounded-full"></div>
-                  </div>
                   <div className="min-w-0 flex-1">
                     <div className="text-base sm:text-lg font-bold text-white truncate">
                       Home
@@ -213,9 +210,6 @@ function Navbar() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 <div className="flex items-center space-x-3 sm:space-x-4">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg flex-shrink-0">
-                    <div className="w-2 h-2 sm:w-3 sm:h-3 bg-white rounded-full"></div>
-                  </div>
                   <div className="min-w-0 flex-1">
                     <div className="text-base sm:text-lg font-bold text-white truncate">
                       About Me
@@ -236,9 +230,6 @@ function Navbar() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 <div className="flex items-center space-x-3 sm:space-x-4">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg flex-shrink-0">
-                    <div className="w-2 h-2 sm:w-3 sm:h-3 bg-white rounded-sm"></div>
-                  </div>
                   <div className="min-w-0 flex-1">
                     <div className="text-base sm:text-lg font-bold text-white truncate">
                       My Work
@@ -260,9 +251,6 @@ function Navbar() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 <div className="flex items-center space-x-3 sm:space-x-4">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg flex-shrink-0">
-                    <div className="w-2 h-2 sm:w-3 sm:h-3 bg-white rounded-sm rotate-45"></div>
-                  </div>
                   <div className="min-w-0 flex-1">
                     <div className="text-base sm:text-lg font-bold text-white truncate">
                       Contact
@@ -287,7 +275,7 @@ function Navbar() {
                     download="Fortune_CV.pdf"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    <button className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base py-3 rounded-lg">
+                    <button className="w-full bg-blue-600  hover:from-blue-700 hover:to-blue-800 text-white font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base py-3 rounded-lg">
                       Download Resume
                     </button>
                   </Link>
