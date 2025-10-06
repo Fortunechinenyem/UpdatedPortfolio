@@ -238,7 +238,6 @@ const About = () => {
                 title: "Career Break - Parenting",
                 description:
                   "Took time to focus on family and motherhood, developing valuable skills in time management, patience, and multitasking that enhance my professional capabilities.",
-
                 highlight: "break",
               },
               {
@@ -264,7 +263,6 @@ const About = () => {
                 title: "Freelance Developer - Open to Opportunities",
                 description:
                   "Available for full-time, contract, or freelance roles. Bringing strong technical skills, diverse industry experience, and fresh perspective to development teams.",
-
                 highlight: "current",
               },
             ].map((item, index) => (
@@ -300,8 +298,7 @@ const About = () => {
                         Available for Opportunities
                       </div>
                     )}
-                    <h3 className="text-xl font-bold text-white mb-2 flex items-center gap-2">
-                      <span>{item.icon}</span>
+                    <h3 className="text-xl font-bold text-white mb-2">
                       {item.title}
                     </h3>
                     <p className="text-gray-300 leading-relaxed">
@@ -313,7 +310,11 @@ const About = () => {
                 <div className="md:w-2/12 flex justify-center relative z-10">
                   <motion.div
                     whileHover={{ scale: 1.1 }}
-                    className={`flex items-center justify-center w-16 h-16 rounded-full text-white font-bold shadow-lg border-4 border-slate-900 ${
+                    className={`flex items-center justify-center rounded-full text-white font-bold shadow-lg border-4 border-slate-900 ${
+                      item.year === "Currently"
+                        ? "w-20 h-20 text-sm" // Larger size and smaller text for "Currently"
+                        : "w-16 h-16 text-base" // Standard size for other years
+                    } ${
                       item.highlight === "break"
                         ? "bg-gradient-to-r from-yellow-600 to-orange-600"
                         : item.highlight === "current"
