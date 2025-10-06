@@ -70,7 +70,7 @@ function Navbar() {
                 Fortune
               </span>
               <div className="text-xs text-blue-300 font-medium tracking-wider hidden sm:block">
-                Full Stack Developer
+                Software Developer
               </div>
             </div>
           </Link>

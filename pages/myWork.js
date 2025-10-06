@@ -11,14 +11,13 @@ import {
   SiFirebase,
 } from "react-icons/si";
 
-// Project images
 import Work1 from "../public/image/for portfolio3.PNG";
 import Work2 from "../public/image/nriomap.JPG";
 import Work3 from "../public/image/kauto1.JPG";
 import Work5 from "../public/image/loveeyp.JPG";
 import Work7 from "../public/image/revibep.JPG";
 import Work8 from "../public/image/gamingp.JPG";
-import Work9 from "../public/image/zenp.JPG";
+import Work9 from "../public/image/nj.JPG";
 import Work10 from "../public/image/fj.JPG";
 
 const MyWork = () => {
@@ -27,16 +26,16 @@ const MyWork = () => {
 
   const projects = [
     {
-      title: "Zendtrax",
+      title: "Naija Chronicles",
       description:
-        "Collaborated on this live logistics application providing real-time package tracking and personalized shipping services. Implemented key features including shipment status updates and customer notifications.",
+        "This app was created to celebrate Nigeria's legacy and heritage.",
       image: Work9,
-      link: "https://www.zendtrax.co/",
+      link: "https://naija-chronicles.vercel.app/",
       github: null,
       tags: ["Next.js", "Tailwind CSS"],
-      role: "Frontend Developer",
+      role: "Software Developer",
       impact:
-        "Improved user engagement by 30% through optimized tracking interface",
+        "Great reviews and engagement was tracked via the google analytics feature",
       tech: [
         {
           name: "Next.js",
@@ -105,7 +104,7 @@ const MyWork = () => {
       github: "#",
       tags: ["React", "Firebase", "CSS Animations"],
       role: "Solo Developer",
-      impact: "Achieved 10,000+ visits during Valentine season",
+      impact: "Achieved 100+ visits during Valentine season",
       tech: [
         {
           name: "React",
@@ -132,7 +131,7 @@ const MyWork = () => {
       link: "https://re-vibe.vercel.app/",
       github: "#",
       tags: ["Next.js", "Stripe", "Firebase"],
-      role: "Fullstack Developer",
+      role: "Software Developer",
       impact: "Implemented secure checkout reducing failed transactions by 25%",
       tech: [
         {
@@ -183,7 +182,7 @@ const MyWork = () => {
       link: "https://nrioma.vercel.app/",
       github: "#",
       tags: ["Next.js", "Tailwind CSS", "REST API"],
-      role: "Fullstack Developer",
+      role: "Software Developer",
       impact: "Reduced order processing time by 35% through optimized workflow",
       tech: [
         {
@@ -211,7 +210,7 @@ const MyWork = () => {
       link: "https://kruss-automotive.vercel.app/",
       github: "#",
       tags: ["Next.js", "Tailwind", "Firebase"],
-      role: "Fullstack Developer",
+      role: "Software Developer",
       impact:
         "Improved service completion rate by 28% through dashboard features",
       tech: [

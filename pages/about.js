@@ -2,6 +2,7 @@
 import DefaultLayout from "@/layout/DefaultLayout";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   FaCode,
@@ -199,7 +200,6 @@ const About = () => {
           </motion.div>
         </div>
       </section>
-
       <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/30 backdrop-blur-sm overflow-hidden">
         {/* Background Elements */}
         <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl"></div>
@@ -217,8 +217,8 @@ const About = () => {
               My <span className="text-blue-400">Journey</span>
             </h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-              From automotive operations to full-stack development, my path has
-              been defined by continuous learning and adaptation
+              From automotive operations to software development, my path has
+              been defined by continuous learning, adaptation, and dedication
             </p>
           </motion.div>
 
@@ -235,21 +235,37 @@ const About = () => {
               },
               {
                 year: "2020",
+                title: "Career Break - Parenting",
+                description:
+                  "Took time to focus on family and motherhood, developing valuable skills in time management, patience, and multitasking that enhance my professional capabilities.",
+
+                highlight: "break",
+              },
+              {
+                year: "2021",
                 title: "Fintech Experience",
                 description:
                   "Transitioned to Fintech as a Customer Experience Professional, gaining deep insights into user needs and digital product requirements.",
               },
               {
-                year: "2021",
+                year: "2022",
                 title: "Coding Journey Begins",
                 description:
-                  "Started at a bootcamp for 10 weeks, wenteach myself programming with focus on JavaScript and modern web development, building foundational technical skills.",
+                  "Started at a bootcamp for 10 weeks with the basics, went on to teach myself programming with focus on JavaScript and modern web development, building foundational technical skills.",
               },
               {
-                year: "2022-Present",
-                title: "Professional Developer",
+                year: "2023",
+                title: "Software Developer & Technical Support Specialist",
                 description:
-                  "Working across multiple industries including e-commerce, health tech, and fintech, delivering scalable digital solutions.",
+                  "Working across multiple industries including e-commerce, edutech, health tech, and fintech, delivering scalable digital solutions.",
+              },
+              {
+                year: "Currently",
+                title: "Freelance Developer - Open to Opportunities",
+                description:
+                  "Available for full-time, contract, or freelance roles. Bringing strong technical skills, diverse industry experience, and fresh perspective to development teams.",
+
+                highlight: "current",
               },
             ].map((item, index) => (
               <motion.div
@@ -266,11 +282,26 @@ const About = () => {
                 <div className="md:w-5/12 px-4 mb-4 md:mb-0">
                   <motion.div
                     whileHover={{ scale: 1.02 }}
-                    className={`p-6 bg-slate-800/50 backdrop-blur-lg rounded-2xl border border-slate-700 shadow-xl hover:shadow-2xl transition-all duration-300 ${
-                      index % 2 === 0 ? "md:text-right" : "md:text-left"
-                    }`}
+                    className={`p-6 backdrop-blur-lg rounded-2xl border shadow-xl hover:shadow-2xl transition-all duration-300 ${
+                      item.highlight === "break"
+                        ? "bg-yellow-500/10 border-yellow-500/30"
+                        : item.highlight === "current"
+                        ? "bg-green-500/10 border-green-500/30"
+                        : "bg-slate-800/50 border-slate-700"
+                    } ${index % 2 === 0 ? "md:text-right" : "md:text-left"}`}
                   >
-                    <h3 className="text-xl font-bold text-white mb-2">
+                    {item.highlight === "break" && (
+                      <div className="inline-flex items-center px-3 py-1 rounded-full bg-yellow-500/20 border border-yellow-500/30 text-yellow-400 text-sm font-medium mb-3">
+                        Career Break
+                      </div>
+                    )}
+                    {item.highlight === "current" && (
+                      <div className="inline-flex items-center px-3 py-1 rounded-full bg-green-500/20 border border-green-500/30 text-green-400 text-sm font-medium mb-3">
+                        Available for Opportunities
+                      </div>
+                    )}
+                    <h3 className="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                      <span>{item.icon}</span>
                       {item.title}
                     </h3>
                     <p className="text-gray-300 leading-relaxed">
@@ -282,7 +313,13 @@ const About = () => {
                 <div className="md:w-2/12 flex justify-center relative z-10">
                   <motion.div
                     whileHover={{ scale: 1.1 }}
-                    className="flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold shadow-lg border-4 border-slate-900"
+                    className={`flex items-center justify-center w-16 h-16 rounded-full text-white font-bold shadow-lg border-4 border-slate-900 ${
+                      item.highlight === "break"
+                        ? "bg-gradient-to-r from-yellow-600 to-orange-600"
+                        : item.highlight === "current"
+                        ? "bg-gradient-to-r from-green-600 to-emerald-600 animate-pulse"
+                        : "bg-gradient-to-r from-blue-600 to-purple-600"
+                    }`}
                   >
                     {item.year}
                   </motion.div>
@@ -292,6 +329,24 @@ const About = () => {
               </motion.div>
             ))}
           </div>
+
+          {/* Call to Action */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            variants={fadeInUp}
+            viewport={{ once: true }}
+            className="text-center mt-16"
+          >
+            <div className="inline-flex flex-col sm:flex-row gap-4 items-center bg-slate-800/50 backdrop-blur-lg p-6 rounded-2xl border border-slate-700">
+              <div className="flex items-center gap-3">
+                <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+              </div>
+              <p className="text-gray-300">
+                Open to full-time, contract, and freelance opportunities
+              </p>
+            </div>
+          </motion.div>
         </div>
       </section>
 
