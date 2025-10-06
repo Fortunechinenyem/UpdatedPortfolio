@@ -253,7 +253,7 @@ const About = () => {
                   "Started at a bootcamp for 10 weeks with the basics, went on to teach myself programming with focus on JavaScript and modern web development, building foundational technical skills.",
               },
               {
-                year: "2023",
+                year: "2023 - 2024",
                 title: "Software Developer & Technical Support Specialist",
                 description:
                   "Working across multiple industries including e-commerce, edutech, health tech, and fintech, delivering scalable digital solutions.",
@@ -313,6 +313,8 @@ const About = () => {
                     className={`flex items-center justify-center rounded-full text-white font-bold shadow-lg border-4 border-slate-900 ${
                       item.year === "Currently"
                         ? "w-20 h-20 text-sm" // Larger size and smaller text for "Currently"
+                        : item.year === "2023 - 2024"
+                        ? "w-20 h-20 text-xs" // Larger size and even smaller text for "2023 - 2024"
                         : "w-16 h-16 text-base" // Standard size for other years
                     } ${
                       item.highlight === "break"
